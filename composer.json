@@ -23,7 +23,8 @@
     },
     "require-dev": {
         "pestphp/pest": "^2.36",
-        "laravel/pint": "^1.20"
+        "laravel/pint": "^1.20",
+        "whmcs/developer-docs": "dev-main"
     },
     "autoload": {
         "psr-4": {
@@ -56,5 +57,19 @@
         }
     },
     "minimum-stability": "stable",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "whmcs/developer-docs",
+                "version": "dev-main",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/WHMCS/developer-docs.git",
+                    "reference": "master"
+                }
+            }
+        }
+    ]
 }
