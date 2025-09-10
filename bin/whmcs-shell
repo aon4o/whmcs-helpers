@@ -14,6 +14,6 @@ declare(strict_types=1);
 require_once __DIR__ . '/../../../autoload.php';
 
 // Bootstrap WHMCS so we can use its functions and classes.
-require_once __DIR__ . '/../../../../../../../init.php';
+Aon4o\WhmcsHelpers\WHMCS::init();
 
 (new Psy\Shell())->run();
