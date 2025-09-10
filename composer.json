@@ -1,48 +1,56 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "aon4o/whmcs-helpers",
+    "description": "A collection of WHMCS specific helpers.",
     "keywords": [
-        ":vendor_name",
-        ":package_slug"
+        "aon4o",
+        "whmcs-helpers",
+        "whmcs",
+        "helpers",
+        "whmcs-module"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/aon4o/whmcs-helpers",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Alex Naida",
+            "email": "a.o.naidenov@gmail.com",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^8.4"
+        "php": "^8.1"
     },
     "require-dev": {
-        :require_dev_testing,
-        :require_dev_codestyle,
-        "spatie/ray": "^1.28"
+        "pestphp/pest": "^2.36",
+        "laravel/pint": "^1.20"
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src"
+            "Aon4o\\WhmcsHelpers\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "Tests\\": "tests"
         }
     },
     "scripts": {
-        :scripts_testing,
-        :scripts_codestyle
+        "test": "vendor/bin/pest",
+        "test:unit": "@test --testsuite=Unit",
+        "test:feat": "@test --testsuite=Feature",
+        "test:arch": "@test --testsuite=Architecture",
+        "lint": "vendor/bin/pint",
+        "lint:test": "@lint --test",
+        "format": "vendor/bin/rector",
+        "format:test": "@format --dry-run"
     },
     "config": {
         "sort-packages": true,
         "allow-plugins": {
-            :plugins_testing,
+            "pestphp/pest-plugin": true,
             "phpstan/extension-installer": true
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }
