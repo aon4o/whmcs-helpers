@@ -12,6 +12,8 @@ class WHMCS
      * @param  mixed|null  $response
      *
      * @return void
+     *
+     * @link https://developers.whmcs.com/provisioning-modules/module-logging/
      */
     public static function log(string $function, mixed $request = null, mixed $response = null): void
     {
