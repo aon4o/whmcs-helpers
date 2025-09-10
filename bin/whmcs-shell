@@ -8,7 +8,7 @@ declare(strict_types=1);
  */
 
 // Require Composer's autoloader so we can use composer packages and our classes.
-require_once __DIR__ . '/../autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 // Bootstrap WHMCS so we can use its functions and classes.
 require_once __DIR__ . '/../../../../../init.php';
