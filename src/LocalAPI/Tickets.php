@@ -88,14 +88,14 @@ class Tickets extends LocalAPI
         null|int $limitstart = null,
         null|int $limitnum = null,
         null|int $deptid = null,
-        null|int $clientid = null,
+        null|int $client_id = null,
         null|string $email = null,
         null|string $status = null,
         null|string $subject = null,
         null|bool $ignore_dept_assignments = null,
     ): array {
         return self::call('GetTickets', self::payload([
-            'limitstart' => $limitstart, 'limitnum' => $limitnum, 'deptid' => $deptid, 'clientid' => $clientid,
+            'limitstart' => $limitstart, 'limitnum' => $limitnum, 'deptid' => $deptid, 'clientid' => $client_id,
             'email' => $email, 'status' => $status, 'subject' => $subject,
             'ignore_dept_assignments' => $ignore_dept_assignments,
         ]));

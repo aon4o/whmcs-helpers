@@ -28,12 +28,22 @@ class Domains extends LocalAPI
         null|string $display_after = null,
     ): array {
         return self::call('CreateOrUpdateTLD', self::payload([
-            'extension' => $extension, 'id_protection' => $id_protection, 'dns_management' => $dns_management,
-            'email_forwarding' => $email_forwarding, 'epp_required' => $epp_required,
-            'auto_registrar' => $auto_registrar, 'group' => $group, 'currency_code' => $currency_code,
-            'grace_period_days' => $grace_period_days, 'grace_period_fee' => $grace_period_fee,
-            'redemption_period_days' => $redemption_period_days, 'redemption_period_fee' => $redemption_period_fee,
-            'register' => $register, 'renew' => $renew, 'transfer' => $transfer, 'display_after' => $display_after,
+            'extension' => $extension,
+            'id_protection' => $id_protection,
+            'dns_management' => $dns_management,
+            'email_forwarding' => $email_forwarding,
+            'epp_required' => $epp_required,
+            'auto_registrar' => $auto_registrar,
+            'group' => $group,
+            'currency_code' => $currency_code,
+            'grace_period_days' => $grace_period_days,
+            'grace_period_fee' => $grace_period_fee,
+            'redemption_period_days' => $redemption_period_days,
+            'redemption_period_fee' => $redemption_period_fee,
+            'register' => $register,
+            'renew' => $renew,
+            'transfer' => $transfer,
+            'display_after' => $display_after,
         ]));
     }
 
@@ -78,59 +88,75 @@ class Domains extends LocalAPI
      */
     public function release(null|int $domain_id = null, null|string $domain = null, string $new_tag): array
     {
-        return self::call('DomainRelease',
-            self::payload(['domainid' => $domain_id, 'domain' => $domain, 'newtag' => $new_tag]));
+        return self::call('DomainRelease', self::payload([
+            'domainid' => $domain_id,
+            'domain' => $domain,
+            'newtag' => $new_tag,
+        ]));
     }
 
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
-    public function renew(null|int $domainid = null, null|string $domain = null, null|int $regperiod = null): array
-    {
-        return self::call('DomainRenew',
-            self::payload(['domainid' => $domainid, 'domain' => $domain, 'regperiod' => $regperiod]));
+    public function renew(
+        null|int $domain_id = null,
+        null|string $domain = null,
+        null|int $registration_period = null,
+    ): array {
+        return self::call('DomainRenew', self::payload([
+            'domainid' => $domain_id,
+            'domain' => $domain,
+            'regperiod' => $registration_period,
+        ]));
     }
 
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
-    public function requestEPP(int $domainid): array
+    public function requestEPP(int $domain_id): array
     {
-        return self::call('DomainRequestEPP', self::payload(['domainid' => $domainid]));
+        return self::call('DomainRequestEPP', self::payload(['domainid' => $domain_id]));
     }
 
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
-    public function toggleIdProtect(int $domainid, null|bool $idprotect = null): array
+    public function toggleIdProtect(int $domain_id, null|bool $id_protect = null): array
     {
-        return self::call('DomainToggleIdProtect',
-            self::payload(['domainid' => $domainid, 'idprotect' => $idprotect]));
+        return self::call('DomainToggleIdProtect', self::payload([
+            'domainid' => $domain_id,
+            'idprotect' => $id_protect,
+        ]));
     }
 
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
-    public function transfer(null|int $domainid = null, null|string $domain = null, null|int $eppcode = null): array
+    public function transfer(null|int $domain_id = null, null|string $domain = null, null|int $epp_code = null): array
     {
-        return self::call('DomainTransfer',
-            self::payload(['domainid' => $domainid, 'domain' => $domain, 'eppcode' => $eppcode]));
+        return self::call('DomainTransfer', self::payload([
+            'domainid' => $domain_id,
+            'domain' => $domain,
+            'eppcode' => $epp_code,
+        ]));
     }
 
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
-    public function updateLockingStatus(int $domainid, null|bool $lockstatus = null): array
+    public function updateLockingStatus(int $domain_id, null|bool $lock_status = null): array
     {
-        return self::call('DomainUpdateLockingStatus',
-            self::payload(['domainid' => $domainid, 'lockstatus' => $lockstatus]));
+        return self::call('DomainUpdateLockingStatus', self::payload([
+            'domainid' => $domain_id,
+            'lockstatus' => $lock_status,
+        ]));
     }
 
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function updateNameservers(
-        null|int $domainid = null,
+        null|int $domain_id = null,
         null|string $domain = null,
         string $ns1,
         string $ns2,
@@ -139,7 +165,12 @@ class Domains extends LocalAPI
         null|string $ns5 = null,
     ): array {
         return self::call('DomainUpdateNameservers', self::payload([
-            'domainid' => $domainid, 'domain' => $domain, 'ns1' => $ns1, 'ns2' => $ns2, 'ns3' => $ns3, 'ns4' => $ns4,
+            'domainid' => $domain_id,
+            'domain' => $domain,
+            'ns1' => $ns1,
+            'ns2' => $ns2,
+            'ns3' => $ns3,
+            'ns4' => $ns4,
             'ns5' => $ns5,
         ]));
     }
@@ -147,9 +178,9 @@ class Domains extends LocalAPI
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
-    public function updateWhoisInfo(int $domainid, string $xml): array
+    public function updateWhoisInfo(int $domain_id, string $xml): array
     {
-        return self::call('DomainUpdateWhoisInfo', self::payload(['domainid' => $domainid, 'xml' => $xml]));
+        return self::call('DomainUpdateWhoisInfo', self::payload(['domainid' => $domain_id, 'xml' => $xml]));
     }
 
     /**
@@ -171,36 +202,36 @@ class Domains extends LocalAPI
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
-    public function getTLDPricing(null|int $currencyid = null, null|int $clientid = null): array
+    public function getTLDPricing(null|int $currency_id = null, null|int $client_id = null): array
     {
-        return self::call('GetTLDPricing', self::payload(['currencyid' => $currencyid, 'clientid' => $clientid]));
+        return self::call('GetTLDPricing', self::payload(['currencyid' => $currency_id, 'clientid' => $client_id]));
     }
 
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function updateClientDomain(
-        int $domainid,
-        null|bool $dnsmanagement = null,
-        null|bool $emailforwarding = null,
-        null|bool $idprotection = null,
-        null|bool $donotrenew = null,
+        int $domain_id,
+        null|bool $dns_management = null,
+        null|bool $email_forwarding = null,
+        null|bool $id_protection = null,
+        null|bool $do_not_renew = null,
         null|string $type = null,
-        null|string $regdate = null,
-        null|string $nextduedate = null,
-        null|string $expirydate = null,
+        null|string $reg_date = null,
+        null|string $next_due_date = null,
+        null|string $expiry_date = null,
         null|string $domain = null,
-        null|float $firstpaymentamount = null,
-        null|float $recurringamount = null,
+        null|float $first_payment_amount = null,
+        null|float $recurring_amount = null,
         null|string $registrar = null,
-        null|int $regperiod = null,
-        null|string $paymentmethod = null,
-        null|string $subscriptionid = null,
+        null|int $reg_period = null,
+        null|string $payment_method = null,
+        null|string $subscription_id = null,
         null|string $status = null,
         null|string $notes = null,
-        null|int $promoid = null,
-        null|bool $autorecalc = null,
-        null|bool $updatens = null,
+        null|int $promo_id = null,
+        null|bool $auto_recalc = null,
+        null|bool $update_ns = null,
         null|string $ns1 = null,
         null|string $ns2 = null,
         null|string $ns3 = null,
@@ -208,14 +239,32 @@ class Domains extends LocalAPI
         null|string $ns5 = null,
     ): array {
         return self::call('UpdateClientDomain', self::payload([
-            'domainid' => $domainid, 'dnsmanagement' => $dnsmanagement, 'emailforwarding' => $emailforwarding,
-            'idprotection' => $idprotection, 'donotrenew' => $donotrenew, 'type' => $type, 'regdate' => $regdate,
-            'nextduedate' => $nextduedate, 'expirydate' => $expirydate, 'domain' => $domain,
-            'firstpaymentamount' => $firstpaymentamount, 'recurringamount' => $recurringamount,
-            'registrar' => $registrar, 'regperiod' => $regperiod, 'paymentmethod' => $paymentmethod,
-            'subscriptionid' => $subscriptionid, 'status' => $status, 'notes' => $notes, 'promoid' => $promoid,
-            'autorecalc' => $autorecalc, 'updatens' => $updatens, 'ns1' => $ns1, 'ns2' => $ns2, 'ns3' => $ns3,
-            'ns4' => $ns4, 'ns5' => $ns5,
+            'domainid' => $domain_id,
+            'dnsmanagement' => $dns_management,
+            'emailforwarding' => $email_forwarding,
+            'idprotection' => $id_protection,
+            'donotrenew' => $do_not_renew,
+            'type' => $type,
+            'regdate' => $reg_date,
+            'nextduedate' => $next_due_date,
+            'expirydate' => $expiry_date,
+            'domain' => $domain,
+            'firstpaymentamount' => $first_payment_amount,
+            'recurringamount' => $recurring_amount,
+            'registrar' => $registrar,
+            'regperiod' => $reg_period,
+            'paymentmethod' => $payment_method,
+            'subscriptionid' => $subscription_id,
+            'status' => $status,
+            'notes' => $notes,
+            'promoid' => $promo_id,
+            'autorecalc' => $auto_recalc,
+            'updatens' => $update_ns,
+            'ns1' => $ns1,
+            'ns2' => $ns2,
+            'ns3' => $ns3,
+            'ns4' => $ns4,
+            'ns5' => $ns5,
         ]));
     }
 }

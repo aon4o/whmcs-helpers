@@ -62,7 +62,7 @@ class Support extends LocalAPI
         int $ticketid,
         string $message,
         null|bool $markdown = null,
-        null|int $clientid = null,
+        null|int $client_id = null,
         null|int $contactid = null,
         null|string $adminusername = null,
         null|string $name = null,
@@ -74,7 +74,7 @@ class Support extends LocalAPI
         null|string $created = null,
     ): array {
         return self::call('AddTicketReply', self::payload([
-            'ticketid' => $ticketid, 'message' => $message, 'markdown' => $markdown, 'clientid' => $clientid,
+            'ticketid' => $ticketid, 'message' => $message, 'markdown' => $markdown, 'clientid' => $client_id,
             'contactid' => $contactid, 'adminusername' => $adminusername, 'name' => $name, 'email' => $email,
             'status' => $status, 'noemail' => $noemail, 'customfields' => $customfields, 'attachments' => $attachments,
             'created' => $created,
@@ -146,7 +146,7 @@ class Support extends LocalAPI
         int $deptid,
         string $subject,
         string $message,
-        null|int $clientid = null,
+        null|int $client_id = null,
         null|int $userid = null,
         null|int $contactid = null,
         null|string $name = null,
@@ -154,7 +154,7 @@ class Support extends LocalAPI
         null|string $priority = null,
         null|string $created = null,
         null|int $serviceid = null,
-        null|int $domainid = null,
+        null|int $domain_id = null,
         null|bool $admin = null,
         null|bool $noemail = null,
         null|bool $markdown = null,
@@ -163,9 +163,9 @@ class Support extends LocalAPI
         null|bool $preventClientClosure = null,
     ): array {
         return self::call('OpenTicket', self::payload([
-            'deptid' => $deptid, 'subject' => $subject, 'message' => $message, 'clientid' => $clientid,
+            'deptid' => $deptid, 'subject' => $subject, 'message' => $message, 'clientid' => $client_id,
             'userid' => $userid, 'contactid' => $contactid, 'name' => $name, 'email' => $email, 'priority' => $priority,
-            'created' => $created, 'serviceid' => $serviceid, 'domainid' => $domainid, 'admin' => $admin,
+            'created' => $created, 'serviceid' => $serviceid, 'domainid' => $domain_id, 'admin' => $admin,
             'noemail' => $noemail, 'markdown' => $markdown, 'customfields' => $customfields,
             'attachments' => $attachments, 'preventClientClosure' => $preventClientClosure,
         ]));

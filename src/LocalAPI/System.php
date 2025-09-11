@@ -37,14 +37,14 @@ class System extends LocalAPI
     public function getActivityLog(
         null|int $limitstart = null,
         null|int $limitnum = null,
-        null|int $clientid = null,
+        null|int $client_id = null,
         null|string $date = null,
         null|string $user = null,
         null|string $description = null,
         null|string $ipaddress = null,
     ): array {
         return self::call('GetActivityLog', self::payload([
-            'limitstart' => $limitstart, 'limitnum' => $limitnum, 'clientid' => $clientid, 'date' => $date,
+            'limitstart' => $limitstart, 'limitnum' => $limitnum, 'clientid' => $client_id, 'date' => $date,
             'user' => $user, 'description' => $description, 'ipaddress' => $ipaddress,
         ]));
     }
@@ -152,9 +152,9 @@ class System extends LocalAPI
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
-    public function logActivity(null|int $clientid = null, string $description): array
+    public function logActivity(null|int $client_id = null, string $description): array
     {
-        return self::call('LogActivity', self::payload(['clientid' => $clientid, 'description' => $description]));
+        return self::call('LogActivity', self::payload(['clientid' => $client_id, 'description' => $description]));
     }
 
     /**
