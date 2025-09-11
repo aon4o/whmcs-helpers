@@ -11,9 +11,9 @@ class Client extends LocalAPI
      */
     public function addClient(
         null|int $owner_user_id = null,
-        string $firstname,
-        string $lastname,
-        null|string $companyname = null,
+        string $first_name,
+        string $last_name,
+        null|string $company_name = null,
         string $email,
         string $address1,
         null|string $address2 = null,
@@ -21,38 +21,47 @@ class Client extends LocalAPI
         string $state,
         string $postcode,
         string $country,
-        string $phonenumber,
+        string $phone_number,
         null|string $tax_id = null,
         null|string $password2 = null,
-        null|int $securityqid = null,
-        null|string $securityqans = null,
-        null|int $currency = null,
-        null|int $groupid = null,
-        null|string $customfields = null,
+        null|int $security_question_id = null,
+        null|string $security_question_answer = null,
+        null|int $currency_id = null,
+        null|int $group_id = null,
+        null|string $custom_fields = null,
         null|string $language = null,
-        null|string $clientip = null,
+        null|string $client_ip = null,
         null|string $notes = null,
-        null|bool $marketingoptin = null,
-        null|bool $noemail = null,
-        null|bool $skipvalidation = null,
-        null|string $__cardtype__ = null,
-        null|string $__cardnum__ = null,
-        null|string $__expdate__ = null,
-        null|string $__startdate__ = null,
-        null|string $__issuenumber__ = null,
-        null|string $__cvv__ = null,
+        null|bool $marketing_opt_in = null,
+        null|bool $no_email = null,
+        null|bool $skip_validation = null,
     ): array {
         return self::call('AddClient', self::payload([
-            'owner_user_id' => $owner_user_id, 'firstname' => $firstname, 'lastname' => $lastname,
-            'companyname' => $companyname, 'email' => $email, 'address1' => $address1, 'address2' => $address2,
-            'city' => $city, 'state' => $state, 'postcode' => $postcode, 'country' => $country,
-            'phonenumber' => $phonenumber, 'tax_id' => $tax_id, 'password2' => $password2,
-            'securityqid' => $securityqid, 'securityqans' => $securityqans, 'currency' => $currency,
-            'groupid' => $groupid, 'customfields' => $customfields, 'language' => $language, 'clientip' => $clientip,
-            'notes' => $notes, 'marketingoptin' => $marketingoptin, 'noemail' => $noemail,
-            'skipvalidation' => $skipvalidation, '~~cardtype~~' => $__cardtype__, '~~cardnum~~' => $__cardnum__,
-            '~~expdate~~' => $__expdate__, '~~startdate~~' => $__startdate__, '~~issuenumber~~' => $__issuenumber__,
-            '~~cvv~~' => $__cvv__,
+            'owner_user_id' => $owner_user_id,
+            'firstname' => $first_name,
+            'lastname' => $last_name,
+            'companyname' => $company_name,
+            'email' => $email,
+            'address1' => $address1,
+            'address2' => $address2,
+            'city' => $city,
+            'state' => $state,
+            'postcode' => $postcode,
+            'country' => $country,
+            'phonenumber' => $phone_number,
+            'tax_id' => $tax_id,
+            'password2' => $password2,
+            'securityqid' => $security_question_id,
+            'securityqans' => $security_question_answer,
+            'currency' => $currency_id,
+            'groupid' => $group_id,
+            'customfields' => $custom_fields,
+            'language' => $language,
+            'clientip' => $client_ip,
+            'notes' => $notes,
+            'marketingoptin' => $marketing_opt_in,
+            'noemail' => $no_email,
+            'skipvalidation' => $skip_validation,
         ]));
     }
 
@@ -61,9 +70,9 @@ class Client extends LocalAPI
      */
     public function addContact(
         int $client_id,
-        null|string $firstname = null,
-        null|string $lastname = null,
-        null|string $companyname = null,
+        null|string $first_name = null,
+        null|string $last_name = null,
+        null|string $company_name = null,
         null|string $email = null,
         null|string $address1 = null,
         null|string $address2 = null,
@@ -71,25 +80,37 @@ class Client extends LocalAPI
         null|string $state = null,
         null|string $postcode = null,
         null|string $country = null,
-        null|string $phonenumber = null,
+        null|string $phone_number = null,
         null|string $tax_id = null,
-        null|bool $email_preferences_general_ = null,
-        null|bool $email_preferences_product_ = null,
-        null|bool $email_preferences_domain_ = null,
-        null|bool $email_preferences_invoice_ = null,
-        null|bool $email_preferences_support_ = null,
-        null|bool $email_preferences_affiliate_ = null,
+        null|bool $email_preference_general = null,
+        null|bool $email_preference_product = null,
+        null|bool $email_preference_domain = null,
+        null|bool $email_preference_invoice = null,
+        null|bool $email_preference_support = null,
+        null|bool $email_preference_affiliate = null,
     ): array {
         return self::call('AddContact', self::payload([
-            'clientid' => $client_id, 'firstname' => $firstname, 'lastname' => $lastname, 'companyname' => $companyname,
-            'email' => $email, 'address1' => $address1, 'address2' => $address2, 'city' => $city, 'state' => $state,
-            'postcode' => $postcode, 'country' => $country, 'phonenumber' => $phonenumber, 'tax_id' => $tax_id,
-            'email_preferences[general]' => $email_preferences_general_,
-            'email_preferences[product]' => $email_preferences_product_,
-            'email_preferences[domain]' => $email_preferences_domain_,
-            'email_preferences[invoice]' => $email_preferences_invoice_,
-            'email_preferences[support]' => $email_preferences_support_,
-            'email_preferences[affiliate]' => $email_preferences_affiliate_,
+            'clientid' => $client_id,
+            'firstname' => $first_name,
+            'lastname' => $last_name,
+            'companyname' => $company_name,
+            'email' => $email,
+            'address1' => $address1,
+            'address2' => $address2,
+            'city' => $city,
+            'state' => $state,
+            'postcode' => $postcode,
+            'country' => $country,
+            'phonenumber' => $phone_number,
+            'tax_id' => $tax_id,
+            'email_preferences' => [
+                'general' => $email_preference_general,
+                'product' => $email_preference_product,
+                'domain' => $email_preference_domain,
+                'invoice' => $email_preference_invoice,
+                'support' => $email_preference_support,
+                'affiliate' => $email_preference_affiliate,
+            ],
         ]));
     }
 
@@ -110,7 +131,9 @@ class Client extends LocalAPI
         null|bool $delete_transactions = null,
     ): array {
         return self::call('DeleteClient', self::payload([
-            'clientid' => $client_id, 'deleteusers' => $delete_users, 'deletetransactions' => $delete_transactions,
+            'clientid' => $client_id,
+            'deleteusers' => $delete_users,
+            'deletetransactions' => $delete_transactions,
         ]));
     }
 
@@ -127,8 +150,10 @@ class Client extends LocalAPI
      */
     public function getCancelledPackages(null|int $limit_start = null, null|int $limit_num = null): array
     {
-        return self::call('GetCancelledPackages',
-            self::payload(['limitstart' => $limit_start, 'limitnum' => $limit_num]));
+        return self::call('GetCancelledPackages', self::payload([
+            'limitstart' => $limit_start,
+            'limitnum' => $limit_num,
+        ]));
     }
 
     /**
@@ -159,8 +184,12 @@ class Client extends LocalAPI
         null|string $order_by = null,
     ): array {
         return self::call('GetClients', self::payload([
-            'limitstart' => $limit_start, 'limitnum' => $limit_num, 'sorting' => $sorting, 'status' => $status,
-            'search' => $search, 'orderby' => $order_by,
+            'limitstart' => $limit_start,
+            'limitnum' => $limit_num,
+            'sorting' => $sorting,
+            'status' => $status,
+            'search' => $search,
+            'orderby' => $order_by,
         ]));
     }
 
@@ -168,38 +197,47 @@ class Client extends LocalAPI
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function getClientsAddons(
-        null|int $serviceid = null,
-        null|int $clientid = null,
-        null|int $addonid = null,
+        null|int $service_id = null,
+        null|int $client_id = null,
+        null|int $addon_id = null,
     ): array {
-        return self::call('GetClientsAddons',
-            self::payload(['serviceid' => $serviceid, 'clientid' => $clientid, 'addonid' => $addonid]));
+        return self::call('GetClientsAddons', self::payload([
+            'serviceid' => $service_id,
+            'clientid' => $client_id,
+            'addonid' => $addon_id,
+        ]));
     }
 
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function getClientsDetails(
-        null|int $clientid = null,
+        null|int $client_id = null,
         null|string $email = null,
         null|bool $stats = null,
     ): array {
-        return self::call('GetClientsDetails',
-            self::payload(['clientid' => $clientid, 'email' => $email, 'stats' => $stats]));
+        return self::call('GetClientsDetails', self::payload([
+            'clientid' => $client_id,
+            'email' => $email,
+            'stats' => $stats,
+        ]));
     }
 
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function getClientsDomains(
-        null|int $limitstart = null,
-        null|int $limitnum = null,
-        null|int $clientid = null,
-        null|int $domainid = null,
+        null|int $limit_start = null,
+        null|int $limit_num = null,
+        null|int $client_id = null,
+        null|int $domain_id = null,
         null|string $domain = null,
     ): array {
         return self::call('GetClientsDomains', self::payload([
-            'limitstart' => $limitstart, 'limitnum' => $limitnum, 'clientid' => $clientid, 'domainid' => $domainid,
+            'limitstart' => $limit_start,
+            'limitnum' => $limit_num,
+            'clientid' => $client_id,
+            'domainid' => $domain_id,
             'domain' => $domain,
         ]));
     }
@@ -208,17 +246,22 @@ class Client extends LocalAPI
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function getClientsProducts(
-        null|int $limitstart = null,
-        null|int $limitnum = null,
-        null|int $clientid = null,
-        null|int $serviceid = null,
+        null|int $limit_start = null,
+        null|int $limit_num = null,
+        null|int $client_id = null,
+        null|int $service_id = null,
         null|int $pid = null,
         null|string $domain = null,
         null|string $username2 = null,
     ): array {
         return self::call('GetClientsProducts', self::payload([
-            'limitstart' => $limitstart, 'limitnum' => $limitnum, 'clientid' => $clientid, 'serviceid' => $serviceid,
-            'pid' => $pid, 'domain' => $domain, 'username2' => $username2,
+            'limitstart' => $limit_start,
+            'limitnum' => $limit_num,
+            'clientid' => $client_id,
+            'serviceid' => $service_id,
+            'pid' => $pid,
+            'domain' => $domain,
+            'username2' => $username2,
         ]));
     }
 
@@ -226,12 +269,12 @@ class Client extends LocalAPI
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function getContacts(
-        null|int $limitstart = null,
-        null|int $limitnum = null,
-        null|int $userid = null,
-        null|string $firstname = null,
-        null|string $lastname = null,
-        null|string $companyname = null,
+        null|int $limit_start = null,
+        null|int $limit_num = null,
+        null|int $user_id = null,
+        null|string $first_name = null,
+        null|string $last_name = null,
+        null|string $company_name = null,
         null|string $email = null,
         null|string $address1 = null,
         null|string $address2 = null,
@@ -239,13 +282,23 @@ class Client extends LocalAPI
         null|string $state = null,
         null|string $postcode = null,
         null|string $country = null,
-        null|string $phonenumber = null,
+        null|string $phone_number = null,
     ): array {
         return self::call('GetContacts', self::payload([
-            'limitstart' => $limitstart, 'limitnum' => $limitnum, 'userid' => $userid, 'firstname' => $firstname,
-            'lastname' => $lastname, 'companyname' => $companyname, 'email' => $email, 'address1' => $address1,
-            'address2' => $address2, 'city' => $city, 'state' => $state, 'postcode' => $postcode, 'country' => $country,
-            'phonenumber' => $phonenumber,
+            'limitstart' => $limit_start,
+            'limitnum' => $limit_num,
+            'userid' => $user_id,
+            'firstname' => $first_name,
+            'lastname' => $last_name,
+            'companyname' => $company_name,
+            'email' => $email,
+            'address1' => $address1,
+            'address2' => $address2,
+            'city' => $city,
+            'state' => $state,
+            'postcode' => $postcode,
+            'country' => $country,
+            'phonenumber' => $phone_number,
         ]));
     }
 
@@ -253,14 +306,17 @@ class Client extends LocalAPI
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function getEmails(
-        int $clientid,
-        null|int $limitstart = null,
-        null|int $limitnum = null,
+        int $client_id,
+        null|int $limit_start = null,
+        null|int $limit_num = null,
         null|string $date = null,
         null|string $subject = null,
     ): array {
         return self::call('GetEmails', self::payload([
-            'clientid' => $clientid, 'limitstart' => $limitstart, 'limitnum' => $limitnum, 'date' => $date,
+            'clientid' => $client_id,
+            'limitstart' => $limit_start,
+            'limitnum' => $limit_num,
+            'date' => $date,
             'subject' => $subject,
         ]));
     }
@@ -269,11 +325,11 @@ class Client extends LocalAPI
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function updateClient(
-        null|int $clientid = null,
-        null|string $clientemail = null,
-        null|string $firstname = null,
-        null|string $lastname = null,
-        null|string $companyname = null,
+        null|int $client_id = null,
+        null|string $client_email = null,
+        null|string $first_name = null,
+        null|string $last_name = null,
+        null|string $company_name = null,
         null|string $email = null,
         null|string $address1 = null,
         null|string $address2 = null,
@@ -281,60 +337,72 @@ class Client extends LocalAPI
         null|string $state = null,
         null|string $postcode = null,
         null|string $country = null,
-        null|string $phonenumber = null,
+        null|string $phone_number = null,
         null|string $tax_id = null,
-        null|string $__cardtype__ = null,
-        null|string $__cardnum__ = null,
-        null|string $__expdate__ = null,
-        null|string $__startdate__ = null,
-        null|string $__issuenumber__ = null,
-        null|string $__cvv__ = null,
-        null|string $__bankcode__ = null,
-        null|string $__bankacct__ = null,
         null|int $currency = null,
-        null|int $groupid = null,
-        null|string $customfields = null,
+        null|int $group_id = null,
+        null|string $custom_fields = null,
         null|string $language = null,
-        null|string $clientip = null,
+        null|string $client_ip = null,
         null|string $notes = null,
         null|string $status = null,
-        null|string $paymentmethod = null,
-        null|bool $email_preferences_general_ = null,
-        null|bool $email_preferences_product_ = null,
-        null|bool $email_preferences_domain_ = null,
-        null|bool $email_preferences_invoice_ = null,
-        null|bool $email_preferences_support_ = null,
-        null|bool $email_preferences_affiliate_ = null,
-        null|bool $marketingoptin = null,
-        null|bool $clearcreditcard = null,
-        null|bool $skipvalidation = null,
-        null|bool $latefeeoveride = null,
-        null|bool $overideduenotices = null,
-        null|bool $taxexempt = null,
-        null|bool $separateinvoices = null,
-        null|bool $disableautocc = null,
-        null|bool $overrideautoclose = null,
+        null|string $payment_method = null,
+        null|bool $email_preference_general = null,
+        null|bool $email_preference_product = null,
+        null|bool $email_preference_domain = null,
+        null|bool $email_preference_invoice = null,
+        null|bool $email_preference_support = null,
+        null|bool $email_preference_affiliate = null,
+        null|bool $marketing_opt_in = null,
+        null|bool $clear_credit_card = null,
+        null|bool $skip_validation = null,
+        null|bool $late_fee_overide = null,
+        null|bool $override_due_notices = null,
+        null|bool $tax_exempt = null,
+        null|bool $separate_invoices = null,
+        null|bool $disable_auto_cc = null,
+        null|bool $override_auto_close = null,
     ): array {
         return self::call('UpdateClient', self::payload([
-            'clientid' => $clientid, 'clientemail' => $clientemail, 'firstname' => $firstname, 'lastname' => $lastname,
-            'companyname' => $companyname, 'email' => $email, 'address1' => $address1, 'address2' => $address2,
-            'city' => $city, 'state' => $state, 'postcode' => $postcode, 'country' => $country,
-            'phonenumber' => $phonenumber, 'tax_id' => $tax_id, '~~cardtype~~' => $__cardtype__,
-            '~~cardnum~~' => $__cardnum__, '~~expdate~~' => $__expdate__, '~~startdate~~' => $__startdate__,
-            '~~issuenumber~~' => $__issuenumber__, '~~cvv~~' => $__cvv__, '~~bankcode~~' => $__bankcode__,
-            '~~bankacct~~' => $__bankacct__, 'currency' => $currency, 'groupid' => $groupid,
-            'customfields' => $customfields, 'language' => $language, 'clientip' => $clientip, 'notes' => $notes,
-            'status' => $status, 'paymentmethod' => $paymentmethod,
-            'email_preferences[general]' => $email_preferences_general_,
-            'email_preferences[product]' => $email_preferences_product_,
-            'email_preferences[domain]' => $email_preferences_domain_,
-            'email_preferences[invoice]' => $email_preferences_invoice_,
-            'email_preferences[support]' => $email_preferences_support_,
-            'email_preferences[affiliate]' => $email_preferences_affiliate_, 'marketingoptin' => $marketingoptin,
-            'clearcreditcard' => $clearcreditcard, 'skipvalidation' => $skipvalidation,
-            'latefeeoveride' => $latefeeoveride, 'overideduenotices' => $overideduenotices, 'taxexempt' => $taxexempt,
-            'separateinvoices' => $separateinvoices, 'disableautocc' => $disableautocc,
-            'overrideautoclose' => $overrideautoclose,
+            'clientid' => $client_id,
+            'clientemail' => $client_email,
+            'firstname' => $first_name,
+            'lastname' => $last_name,
+            'companyname' => $company_name,
+            'email' => $email,
+            'address1' => $address1,
+            'address2' => $address2,
+            'city' => $city,
+            'state' => $state,
+            'postcode' => $postcode,
+            'country' => $country,
+            'phonenumber' => $phone_number,
+            'tax_id' => $tax_id,
+            'currency' => $currency,
+            'groupid' => $group_id,
+            'customfields' => $custom_fields,
+            'language' => $language,
+            'clientip' => $client_ip,
+            'notes' => $notes,
+            'status' => $status,
+            'paymentmethod' => $payment_method,
+            'email_preferences' => [
+                'general' => $email_preference_general,
+                'product' => $email_preference_product,
+                'domain' => $email_preference_domain,
+                'invoice' => $email_preference_invoice,
+                'support' => $email_preference_support,
+                'affiliate' => $email_preference_affiliate,
+            ],
+            'marketingoptin' => $marketing_opt_in,
+            'clearcreditcard' => $clear_credit_card,
+            'skipvalidation' => $skip_validation,
+            'latefeeoveride' => $late_fee_overide,
+            'overideduenotices' => $override_due_notices,
+            'taxexempt' => $tax_exempt,
+            'separateinvoices' => $separate_invoices,
+            'disableautocc' => $disable_auto_cc,
+            'overrideautoclose' => $override_auto_close,
         ]));
     }
 
@@ -342,10 +410,10 @@ class Client extends LocalAPI
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function updateContact(
-        int $contactid,
-        null|string $firstname = null,
-        null|string $lastname = null,
-        null|string $companyname = null,
+        int $contact_id,
+        null|string $first_name = null,
+        null|string $last_name = null,
+        null|string $company_name = null,
         null|string $email = null,
         null|string $address1 = null,
         null|string $address2 = null,
@@ -353,24 +421,35 @@ class Client extends LocalAPI
         null|string $state = null,
         null|string $postcode = null,
         null|string $country = null,
-        null|string $phonenumber = null,
-        null|bool $email_preferences_general_ = null,
-        null|bool $email_preferences_product_ = null,
-        null|bool $email_preferences_domain_ = null,
-        null|bool $email_preferences_invoice_ = null,
-        null|bool $email_preferences_support_ = null,
-        null|bool $email_preferences_affiliate_ = null,
+        null|string $phone_number = null,
+        null|bool $email_preference_general = null,
+        null|bool $email_preference_product = null,
+        null|bool $email_preference_domain = null,
+        null|bool $email_preference_invoice = null,
+        null|bool $email_preference_support = null,
+        null|bool $email_preference_affiliate = null,
     ): array {
         return self::call('UpdateContact', self::payload([
-            'contactid' => $contactid, 'firstname' => $firstname, 'lastname' => $lastname,
-            'companyname' => $companyname, 'email' => $email, 'address1' => $address1, 'address2' => $address2,
-            'city' => $city, 'state' => $state, 'postcode' => $postcode, 'country' => $country,
-            'phonenumber' => $phonenumber, 'email_preferences[general]' => $email_preferences_general_,
-            'email_preferences[product]' => $email_preferences_product_,
-            'email_preferences[domain]' => $email_preferences_domain_,
-            'email_preferences[invoice]' => $email_preferences_invoice_,
-            'email_preferences[support]' => $email_preferences_support_,
-            'email_preferences[affiliate]' => $email_preferences_affiliate_,
+            'contactid' => $contact_id,
+            'firstname' => $first_name,
+            'lastname' => $last_name,
+            'companyname' => $company_name,
+            'email' => $email,
+            'address1' => $address1,
+            'address2' => $address2,
+            'city' => $city,
+            'state' => $state,
+            'postcode' => $postcode,
+            'country' => $country,
+            'phonenumber' => $phone_number,
+            'email_preferences' => [
+                'general' => $email_preference_general,
+                'product' => $email_preference_product,
+                'domain' => $email_preference_domain,
+                'invoice' => $email_preference_invoice,
+                'support' => $email_preference_support,
+                'affiliate' => $email_preference_affiliate,
+            ],
         ]));
     }
 }
