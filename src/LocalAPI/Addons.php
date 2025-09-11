@@ -12,20 +12,28 @@ class Addons extends LocalAPI
     public function updateClientAddon(
         int $id,
         null|string $status = null,
-        null|int $addonid = null,
+        null|int $addon_id = null,
         null|string $name = null,
-        null|float $setupfee = null,
+        null|float $setup_fee = null,
         null|float $recurring = null,
-        null|string $billingcycle = null,
-        null|string $nextduedate = null,
-        null|string $terminationdate = null,
+        null|string $billing_cycle = null,
+        null|string $next_due_date = null,
+        null|string $termination_date = null,
         null|string $notes = null,
-        null|bool $autorecalc = null,
+        null|bool $auto_recalc = null,
     ): array {
         return self::call('UpdateClientAddon', self::payload([
-            'id' => $id, 'status' => $status, 'addonid' => $addonid, 'name' => $name, 'setupfee' => $setupfee,
-            'recurring' => $recurring, 'billingcycle' => $billingcycle, 'nextduedate' => $nextduedate,
-            'terminationdate' => $terminationdate, 'notes' => $notes, 'autorecalc' => $autorecalc,
+            'id' => $id,
+            'status' => $status,
+            'addonid' => $addon_id,
+            'name' => $name,
+            'setupfee' => $setup_fee,
+            'recurring' => $recurring,
+            'billingcycle' => $billing_cycle,
+            'nextduedate' => $next_due_date,
+            'terminationdate' => $termination_date,
+            'notes' => $notes,
+            'autorecalc' => $auto_recalc,
         ]));
     }
 }

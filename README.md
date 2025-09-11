@@ -6,13 +6,35 @@
 
 This is where your description should go. Try and limit it to a paragraph or two. Consider adding a small example.
 
+## API params fix
+
+- [x] [Addons.php](src/LocalAPI/Addons.php)
+- [x] [Affiliates.php](src/LocalAPI/Affiliates.php)
+- [x] [Authentication.php](src/LocalAPI/Authentication.php)
+- [x] [Billing.php](src/LocalAPI/Billing.php)
+- [ ] [Client.php](src/LocalAPI/Client.php)
+- [ ] [Domains.php](src/LocalAPI/Domains.php)
+- [ ] [Module.php](src/LocalAPI/Module.php)
+- [ ] [Orders.php](src/LocalAPI/Orders.php)
+- [ ] [Products.php](src/LocalAPI/Products.php)
+- [ ] [ProjectManagement.php](src/LocalAPI/ProjectManagement.php)
+- [ ] [Servers.php](src/LocalAPI/Servers.php)
+- [ ] [Service.php](src/LocalAPI/Service.php)
+- [ ] [Support.php](src/LocalAPI/Support.php)
+- [ ] [System.php](src/LocalAPI/System.php)
+- [ ] [Tickets.php](src/LocalAPI/Tickets.php)
+- [ ] [Users.php](src/LocalAPI/Users.php)
+
 ## Support us
 
 [<img src="https://github-ads.s3.eu-central-1.amazonaws.com/whmcs-helpers.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/whmcs-helpers)
 
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
+We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can
+support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
 
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using.
+You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards
+on [our virtual postcard wall](https://spatie.be/open-source/postcards).
 
 ## Installation
 

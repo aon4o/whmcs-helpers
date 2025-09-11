@@ -40,46 +40,46 @@ class Domains extends LocalAPI
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
-    public function getLockingStatus(int $domainid): array
+    public function getLockingStatus(int $domain_id): array
     {
-        return self::call('DomainGetLockingStatus', self::payload(['domainid' => $domainid]));
+        return self::call('DomainGetLockingStatus', self::payload(['domainid' => $domain_id]));
     }
 
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
-    public function getNameservers(int $domainid): array
+    public function getNameservers(int $domain_id): array
     {
-        return self::call('DomainGetNameservers', self::payload(['domainid' => $domainid]));
+        return self::call('DomainGetNameservers', self::payload(['domainid' => $domain_id]));
     }
 
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
-    public function getWhoisInfo(int $domainid): array
+    public function getWhoisInfo(int $domain_id): array
     {
-        return self::call('DomainGetWhoisInfo', self::payload(['domainid' => $domainid]));
+        return self::call('DomainGetWhoisInfo', self::payload(['domainid' => $domain_id]));
     }
 
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function register(
-        null|int $domainid = null,
+        null|int $domain_id = null,
         null|string $domain = null,
-        null|string $idnlanguage = null,
+        null|string $idn_language = null,
     ): array {
         return self::call('DomainRegister',
-            self::payload(['domainid' => $domainid, 'domain' => $domain, 'idnlanguage' => $idnlanguage]));
+            self::payload(['domainid' => $domain_id, 'domain' => $domain, 'idnlanguage' => $idn_language]));
     }
 
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
-    public function release(null|int $domainid = null, null|string $domain = null, string $newtag): array
+    public function release(null|int $domain_id = null, null|string $domain = null, string $new_tag): array
     {
         return self::call('DomainRelease',
-            self::payload(['domainid' => $domainid, 'domain' => $domain, 'newtag' => $newtag]));
+            self::payload(['domainid' => $domain_id, 'domain' => $domain, 'newtag' => $new_tag]));
     }
 
     /**

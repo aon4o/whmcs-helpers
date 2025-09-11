@@ -10,17 +10,22 @@ class Authentication extends LocalAPI
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function createOAuthCredential(
-        string $grantType,
+        string $grant_type,
         string $scope,
         null|string $name = null,
-        null|int $serviceId = null,
+        null|int $service_id = null,
         null|string $description = null,
-        null|string $logoUri = null,
-        null|string $redirectUri = null,
+        null|string $logo_uri = null,
+        null|string $redirect_uri = null,
     ): array {
         return self::call('CreateOAuthCredential', self::payload([
-            'grantType' => $grantType, 'scope' => $scope, 'name' => $name, 'serviceId' => $serviceId,
-            'description' => $description, 'logoUri' => $logoUri, 'redirectUri' => $redirectUri,
+            'grantType' => $grant_type,
+            'scope' => $scope,
+            'name' => $name,
+            'serviceId' => $service_id,
+            'description' => $description,
+            'logoUri' => $logo_uri,
+            'redirectUri' => $redirect_uri,
         ]));
     }
 
@@ -36,30 +41,37 @@ class Authentication extends LocalAPI
         null|string $sso_redirect_path = null,
     ): array {
         return self::call('CreateSsoToken', self::payload([
-            'client_id' => $client_id, 'user_id' => $user_id, 'destination' => $destination,
-            'service_id' => $service_id, 'domain_id' => $domain_id, 'sso_redirect_path' => $sso_redirect_path,
+            'client_id' => $client_id,
+            'user_id' => $user_id,
+            'destination' => $destination,
+            'service_id' => $service_id,
+            'domain_id' => $domain_id,
+            'sso_redirect_path' => $sso_redirect_path,
         ]));
     }
 
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
-    public function deleteOAuthCredential(int $credentialId): array
+    public function deleteOAuthCredential(int $credential_id): array
     {
-        return self::call('DeleteOAuthCredential', self::payload(['credentialId' => $credentialId]));
+        return self::call('DeleteOAuthCredential', self::payload(['credentialId' => $credential_id]));
     }
 
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function listOAuthCredentials(
-        null|string $grantType = null,
-        null|string $sortField = null,
-        null|string $sortOrder = null,
+        null|string $grant_type = null,
+        null|string $sort_field = null,
+        null|string $sort_order = null,
         null|int $limit = null,
     ): array {
         return self::call('ListOAuthCredentials', self::payload([
-            'grantType' => $grantType, 'sortField' => $sortField, 'sortOrder' => $sortOrder, 'limit' => $limit,
+            'grantType' => $grant_type,
+            'sortField' => $sort_field,
+            'sortOrder' => $sort_order,
+            'limit' => $limit,
         ]));
     }
 
@@ -67,21 +79,28 @@ class Authentication extends LocalAPI
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function updateOAuthCredential(
-        int $credentialId,
-        null|string $clientApiIdentifier = null,
+        int $credential_id,
+        null|string $client_api_identifier = null,
         null|string $name = null,
         null|string $description = null,
-        null|string $grantType = null,
+        null|string $grant_type = null,
         null|string $scope = null,
-        null|int $serviceId = null,
-        null|string $logoUri = null,
-        null|string $redirectUri = null,
-        null|bool $resetSecret = null,
+        null|int $service_id = null,
+        null|string $logo_uri = null,
+        null|string $redirect_uri = null,
+        null|bool $reset_secret = null,
     ): array {
         return self::call('UpdateOAuthCredential', self::payload([
-            'credentialId' => $credentialId, 'clientApiIdentifier' => $clientApiIdentifier, 'name' => $name,
-            'description' => $description, 'grantType' => $grantType, 'scope' => $scope, 'serviceId' => $serviceId,
-            'logoUri' => $logoUri, 'redirectUri' => $redirectUri, 'resetSecret' => $resetSecret,
+            'credentialId' => $credential_id,
+            'clientApiIdentifier' => $client_api_identifier,
+            'name' => $name,
+            'description' => $description,
+            'grantType' => $grant_type,
+            'scope' => $scope,
+            'serviceId' => $service_id,
+            'logoUri' => $logo_uri,
+            'redirectUri' => $redirect_uri,
+            'resetSecret' => $reset_secret,
         ]));
     }
 
@@ -90,6 +109,9 @@ class Authentication extends LocalAPI
      */
     public function validateLogin(string $email, string $password2): array
     {
-        return self::call('ValidateLogin', self::payload(['email' => $email, 'password2' => $password2]));
+        return self::call('ValidateLogin', self::payload([
+            'email' => $email,
+            'password2' => $password2,
+        ]));
     }
 }

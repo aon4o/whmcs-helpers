@@ -10,19 +10,19 @@ class Orders extends LocalAPI
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function acceptOrder(
-        int $orderid,
-        null|int $serverid = null,
-        null|string $serviceusername = null,
-        null|string $servicepassword = null,
+        int $order_id,
+        null|int $server_id = null,
+        null|string $service_username = null,
+        null|string $service_password = null,
         null|string $registrar = null,
-        null|bool $sendregistrar = null,
-        null|bool $autosetup = null,
-        null|bool $sendemail = null,
+        null|bool $send_registrar = null,
+        null|bool $auto_setup = null,
+        null|bool $send_email = null,
     ): array {
         return self::call('AcceptOrder', self::payload([
-            'orderid' => $orderid, 'serverid' => $serverid, 'serviceusername' => $serviceusername,
-            'servicepassword' => $servicepassword, 'registrar' => $registrar, 'sendregistrar' => $sendregistrar,
-            'autosetup' => $autosetup, 'sendemail' => $sendemail,
+            'orderid' => $order_id, 'serverid' => $server_id, 'serviceusername' => $service_username,
+            'servicepassword' => $service_password, 'registrar' => $registrar, 'sendregistrar' => $send_registrar,
+            'autosetup' => $auto_setup, 'sendemail' => $send_email,
         ]));
     }
 
@@ -30,8 +30,8 @@ class Orders extends LocalAPI
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function addOrder(
-        int $clientid,
-        string $paymentmethod,
+        int $client_id,
+        string $payment_method,
         null|string $pid = null,
         null|string $qty = null,
         null|string $domain = null,
@@ -79,7 +79,7 @@ class Orders extends LocalAPI
         null|string $addonrenewals = null,
     ): array {
         return self::call('AddOrder', self::payload([
-            'clientid' => $clientid, 'paymentmethod' => $paymentmethod, 'pid' => $pid, 'qty' => $qty,
+            'clientid' => $client_id, 'paymentmethod' => $payment_method, 'pid' => $pid, 'qty' => $qty,
             'domain' => $domain, 'billingcycle' => $billingcycle, 'domaintype' => $domaintype,
             'regperiod' => $regperiod, 'idnlanguage' => $idnlanguage, 'eppcode' => $eppcode,
             'nameserver1' => $nameserver1, 'nameserver2' => $nameserver2, 'nameserver3' => $nameserver3,
@@ -101,41 +101,41 @@ class Orders extends LocalAPI
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
-    public function cancelOrder(int $orderid, null|bool $cancelsub = null, null|bool $noemail = null): array
+    public function cancelOrder(int $order_id, null|bool $cancel_sub = null, null|bool $no_email = null): array
     {
         return self::call('CancelOrder',
-            self::payload(['orderid' => $orderid, 'cancelsub' => $cancelsub, 'noemail' => $noemail]));
+            self::payload(['orderid' => $order_id, 'cancelsub' => $cancel_sub, 'noemail' => $no_email]));
     }
 
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
-    public function deleteOrder(int $orderid): array
+    public function deleteOrder(int $order_id): array
     {
-        return self::call('DeleteOrder', self::payload(['orderid' => $orderid]));
+        return self::call('DeleteOrder', self::payload(['orderid' => $order_id]));
     }
 
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
-    public function fraudOrder(int $orderid, null|bool $cancelsub = null): array
+    public function fraudOrder(int $order_id, null|bool $cancel_sub = null): array
     {
-        return self::call('FraudOrder', self::payload(['orderid' => $orderid, 'cancelsub' => $cancelsub]));
+        return self::call('FraudOrder', self::payload(['orderid' => $order_id, 'cancelsub' => $cancel_sub]));
     }
 
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function getOrders(
-        null|int $limitstart = null,
-        null|int $limitnum = null,
+        null|int $limit_start = null,
+        null|int $limit_num = null,
         null|int $id = null,
-        null|int $userid = null,
+        null|int $user_id = null,
         null|int $requestor_id = null,
         null|string $status = null,
     ): array {
         return self::call('GetOrders', self::payload([
-            'limitstart' => $limitstart, 'limitnum' => $limitnum, 'id' => $id, 'userid' => $userid,
+            'limitstart' => $limit_start, 'limitnum' => $limit_num, 'id' => $id, 'userid' => $user_id,
             'requestor_id' => $requestor_id, 'status' => $status,
         ]));
     }
@@ -151,32 +151,32 @@ class Orders extends LocalAPI
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
-    public function getProducts(null|int $pid = null, null|int $gid = null, null|string $module = null): array
+    public function getProducts(null|int $pid = null, null|int $gid = null, null|string $module_name = null): array
     {
-        return self::call('GetProducts', self::payload(['pid' => $pid, 'gid' => $gid, 'module' => $module]));
+        return self::call('GetProducts', self::payload(['pid' => $pid, 'gid' => $gid, 'module' => $module_name]));
     }
 
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
-    public function getPromotions(null|string $code = null): array
+    public function getPromotions(null|string $promo_code = null): array
     {
-        return self::call('GetPromotions', self::payload(['code' => $code]));
+        return self::call('GetPromotions', self::payload(['code' => $promo_code]));
     }
 
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
-    public function fraudCheck(int $orderid, null|string $ipaddress = null): array
+    public function fraudCheck(int $order_id, null|string $ip_address = null): array
     {
-        return self::call('OrderFraudCheck', self::payload(['orderid' => $orderid, 'ipaddress' => $ipaddress]));
+        return self::call('OrderFraudCheck', self::payload(['orderid' => $order_id, 'ipaddress' => $ip_address]));
     }
 
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
-    public function pendingOrder(int $orderid): array
+    public function pendingOrder(int $order_id): array
     {
-        return self::call('PendingOrder', self::payload(['orderid' => $orderid]));
+        return self::call('PendingOrder', self::payload(['orderid' => $order_id]));
     }
 }

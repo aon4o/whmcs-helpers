@@ -60,7 +60,7 @@ class Client extends LocalAPI
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function addContact(
-        int $clientid,
+        int $client_id,
         null|string $firstname = null,
         null|string $lastname = null,
         null|string $companyname = null,
@@ -81,7 +81,7 @@ class Client extends LocalAPI
         null|bool $email_preferences_affiliate_ = null,
     ): array {
         return self::call('AddContact', self::payload([
-            'clientid' => $clientid, 'firstname' => $firstname, 'lastname' => $lastname, 'companyname' => $companyname,
+            'clientid' => $client_id, 'firstname' => $firstname, 'lastname' => $lastname, 'companyname' => $companyname,
             'email' => $email, 'address1' => $address1, 'address2' => $address2, 'city' => $city, 'state' => $state,
             'postcode' => $postcode, 'country' => $country, 'phonenumber' => $phonenumber, 'tax_id' => $tax_id,
             'email_preferences[general]' => $email_preferences_general_,
@@ -96,39 +96,39 @@ class Client extends LocalAPI
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
-    public function closeClient(int $clientid): array
+    public function closeClient(int $client_id): array
     {
-        return self::call('CloseClient', self::payload(['clientid' => $clientid]));
+        return self::call('CloseClient', self::payload(['clientid' => $client_id]));
     }
 
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function deleteClient(
-        int $clientid,
-        null|bool $deleteusers = null,
-        null|bool $deletetransactions = null,
+        int $client_id,
+        null|bool $delete_users = null,
+        null|bool $delete_transactions = null,
     ): array {
         return self::call('DeleteClient', self::payload([
-            'clientid' => $clientid, 'deleteusers' => $deleteusers, 'deletetransactions' => $deletetransactions,
+            'clientid' => $client_id, 'deleteusers' => $delete_users, 'deletetransactions' => $delete_transactions,
         ]));
     }
 
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
-    public function deleteContact(int $contactid): array
+    public function deleteContact(int $contact_id): array
     {
-        return self::call('DeleteContact', self::payload(['contactid' => $contactid]));
+        return self::call('DeleteContact', self::payload(['contactid' => $contact_id]));
     }
 
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
-    public function getCancelledPackages(null|int $limitstart = null, null|int $limitnum = null): array
+    public function getCancelledPackages(null|int $limit_start = null, null|int $limit_num = null): array
     {
         return self::call('GetCancelledPackages',
-            self::payload(['limitstart' => $limitstart, 'limitnum' => $limitnum]));
+            self::payload(['limitstart' => $limit_start, 'limitnum' => $limit_num]));
     }
 
     /**
@@ -142,25 +142,25 @@ class Client extends LocalAPI
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
-    public function getClientPassword(null|int $userid = null, null|string $email = null): array
+    public function getClientPassword(null|int $user_id = null, null|string $email = null): array
     {
-        return self::call('GetClientPassword', self::payload(['userid' => $userid, 'email' => $email]));
+        return self::call('GetClientPassword', self::payload(['userid' => $user_id, 'email' => $email]));
     }
 
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function getClients(
-        null|int $limitstart = null,
-        null|int $limitnum = null,
+        null|int $limit_start = null,
+        null|int $limit_num = null,
         null|string $sorting = null,
         null|string $status = null,
         null|string $search = null,
-        null|string $orderby = null,
+        null|string $order_by = null,
     ): array {
         return self::call('GetClients', self::payload([
-            'limitstart' => $limitstart, 'limitnum' => $limitnum, 'sorting' => $sorting, 'status' => $status,
-            'search' => $search, 'orderby' => $orderby,
+            'limitstart' => $limit_start, 'limitnum' => $limit_num, 'sorting' => $sorting, 'status' => $status,
+            'search' => $search, 'orderby' => $order_by,
         ]));
     }
 
