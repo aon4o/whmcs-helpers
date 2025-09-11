@@ -13,4 +13,22 @@ enum BillingCycle: string
     case Biennially = 'biennially';
     case Triennially = 'triennially';
     case FreeAccount = 'free';
+
+    /**
+     * @param  string  $cycle
+     *
+     * @return self
+     */
+    public static function fromWord(string $cycle): self
+    {
+        return match ($cycle) {
+            'Monthly' => self::Monthly,
+            'Quarterly' => self::Quarterly,
+            'Semi-Annually' => self::SemiAnnually,
+            'Annually' => self::Annually,
+            'Biennially' => self::Biennially,
+            'Triennially' => self::Triennially,
+            'Free Account' => self::FreeAccount,
+        };
+    }
 }
