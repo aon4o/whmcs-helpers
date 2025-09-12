@@ -11,12 +11,16 @@ class System extends LocalAPI
      */
     public function addBannedIp(string $ip, string $reason, int $days, null|string $expires = null): array
     {
-        return self::call('AddBannedIp',
-            self::payload(['ip' => $ip, 'reason' => $reason, 'days' => $days, 'expires' => $expires]));
+        return self::call('AddBannedIp', self::payload([
+            'ip' => $ip,
+            'reason' => $reason,
+            'days' => $days,
+            'expires' => $expires,
+        ]));
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/decryptpassword/
      */
     public function decryptPassword(string $password2): array
     {
@@ -44,8 +48,13 @@ class System extends LocalAPI
         null|string $ipaddress = null,
     ): array {
         return self::call('GetActivityLog', self::payload([
-            'limitstart' => $limit_start, 'limitnum' => $limit_num, 'clientid' => $client_id, 'date' => $date,
-            'user' => $user, 'description' => $description, 'ipaddress' => $ipaddress,
+            'limitstart' => $limit_start,
+            'limitnum' => $limit_num,
+            'clientid' => $client_id,
+            'date' => $date,
+            'user' => $user,
+            'description' => $description,
+            'ipaddress' => $ipaddress,
         ]));
     }
 
@@ -61,24 +70,30 @@ class System extends LocalAPI
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function getAdminUsers(
-        null|int $roleid = null,
+        null|int $role_id = null,
         null|string $email = null,
         null|bool $include_disabled = null,
     ): array {
-        return self::call('GetAdminUsers',
-            self::payload(['roleid' => $roleid, 'email' => $email, 'include_disabled' => $include_disabled]));
+        return self::call('GetAdminUsers', self::payload([
+            'roleid' => $role_id,
+            'email' => $email,
+            'include_disabled' => $include_disabled,
+        ]));
     }
 
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function getAutomationLog(
-        null|string $startdate = null,
-        null|string $enddate = null,
+        null|string $start_date = null,
+        null|string $end_date = null,
         null|string $namespace = null,
     ): array {
-        return self::call('GetAutomationLog',
-            self::payload(['startdate' => $startdate, 'enddate' => $enddate, 'namespace' => $namespace]));
+        return self::call('GetAutomationLog', self::payload([
+            'startdate' => $start_date,
+            'enddate' => $end_date,
+            'namespace' => $namespace,
+        ]));
     }
 
     /**
@@ -137,8 +152,11 @@ class System extends LocalAPI
         null|int $limit_num = null,
         null|string $status = null,
     ): array {
-        return self::call('GetToDoItems',
-            self::payload(['limitstart' => $limit_start, 'limitnum' => $limit_num, 'status' => $status]));
+        return self::call('GetToDoItems', self::payload([
+            'limitstart' => $limit_start,
+            'limitnum' => $limit_num,
+            'status' => $status,
+        ]));
     }
 
     /**
@@ -161,16 +179,20 @@ class System extends LocalAPI
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function sendAdminEmail(
-        null|string $messagename = null,
-        null|string $custommessage = null,
-        null|string $customsubject = null,
+        null|string $message_name = null,
+        null|string $custom_message = null,
+        null|string $custom_subject = null,
         null|string $type = null,
         null|int $department_id = null,
-        null|array $mergefields = null,
+        null|array $merge_fields = null,
     ): array {
         return self::call('SendAdminEmail', self::payload([
-            'messagename' => $messagename, 'custommessage' => $custommessage, 'customsubject' => $customsubject,
-            'type' => $type, 'deptid' => $department_id, 'mergefields' => $mergefields,
+            'messagename' => $message_name,
+            'custommessage' => $custom_message,
+            'customsubject' => $custom_subject,
+            'type' => $type,
+            'deptid' => $department_id,
+            'mergefields' => $merge_fields,
         ]));
     }
 
@@ -178,16 +200,20 @@ class System extends LocalAPI
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function sendEmail(
-        null|string $messagename = null,
+        null|string $message_name = null,
         null|int $id = null,
-        null|string $customtype = null,
-        null|string $custommessage = null,
-        null|string $customsubject = null,
-        null|array $customvars = null,
+        null|string $custom_type = null,
+        null|string $custom_message = null,
+        null|string $custom_subject = null,
+        null|array $custom_vars = null,
     ): array {
         return self::call('SendEmail', self::payload([
-            'messagename' => $messagename, 'id' => $id, 'customtype' => $customtype, 'custommessage' => $custommessage,
-            'customsubject' => $customsubject, 'customvars' => $customvars,
+            'messagename' => $message_name,
+            'id' => $id,
+            'customtype' => $custom_type,
+            'custommessage' => $custom_message,
+            'customsubject' => $custom_subject,
+            'customvars' => $custom_vars,
         ]));
     }
 
@@ -208,12 +234,17 @@ class System extends LocalAPI
         null|string $message = null,
         null|string $url = null,
         null|string $status = null,
-        null|string $statusStyle = null,
+        null|string $status_style = null,
         null|array $attributes = null,
     ): array {
         return self::call('TriggerNotificationEvent', self::payload([
-            'notification_identifier' => $notification_identifier, 'title' => $title, 'message' => $message,
-            'url' => $url, 'status' => $status, 'statusStyle' => $statusStyle, 'attributes' => $attributes,
+            'notification_identifier' => $notification_identifier,
+            'title' => $title,
+            'message' => $message,
+            'url' => $url,
+            'status' => $status,
+            'statusStyle' => $status_style,
+            'attributes' => $attributes,
         ]));
     }
 
@@ -236,7 +267,10 @@ class System extends LocalAPI
         null|bool $published = null,
     ): array {
         return self::call('UpdateAnnouncement', self::payload([
-            'announcementid' => $announcement_id, 'title' => $title, 'announcement' => $announcement, 'date' => $date,
+            'announcementid' => $announcement_id,
+            'title' => $title,
+            'announcement' => $announcement,
+            'date' => $date,
             'published' => $published,
         ]));
     }
@@ -245,7 +279,7 @@ class System extends LocalAPI
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function updateToDoItem(
-        int $itemid,
+        int $item_id,
         int $admin_id,
         null|string $status = null,
         null|int $date = null,
@@ -254,8 +288,13 @@ class System extends LocalAPI
         null|int $due_date = null,
     ): array {
         return self::call('UpdateToDoItem', self::payload([
-            'itemid' => $itemid, 'adminid' => $admin_id, 'status' => $status, 'date' => $date, 'title' => $title,
-            'description' => $description, 'duedate' => $due_date,
+            'itemid' => $item_id,
+            'adminid' => $admin_id,
+            'status' => $status,
+            'date' => $date,
+            'title' => $title,
+            'description' => $description,
+            'duedate' => $due_date,
         ]));
     }
 
