@@ -47,7 +47,7 @@ class ProjectManagement extends LocalAPI
     public function createProject(
         string $title,
         int $admin_id,
-        null|int $userid = null,
+        null|int $user_id = null,
         null|string $status = null,
         null|string $created = null,
         null|string $due_date = null,
@@ -58,7 +58,7 @@ class ProjectManagement extends LocalAPI
         return self::call('CreateProject', self::payload([
             'title' => $title,
             'adminid' => $admin_id,
-            'userid' => $userid,
+            'userid' => $user_id,
             'status' => $status,
             'created' => $created,
             'duedate' => $due_date,
@@ -107,7 +107,7 @@ class ProjectManagement extends LocalAPI
     public function getProjects(
         null|int $limit_start = null,
         null|int $limit_num = null,
-        null|int $userid = null,
+        null|int $user_id = null,
         null|string $title = null,
         null|string $ticket_ids = null,
         null|string $invoice_ids = null,
@@ -122,7 +122,7 @@ class ProjectManagement extends LocalAPI
         return self::call('GetProjects', self::payload([
             'limitstart' => $limit_start,
             'limitnum' => $limit_num,
-            'userid' => $userid,
+            'userid' => $user_id,
             'title' => $title,
             'ticketids' => $ticket_ids,
             'invoiceids' => $invoice_ids,
@@ -161,7 +161,7 @@ class ProjectManagement extends LocalAPI
     public function updateProject(
         int $project_id,
         null|int $admin_id = null,
-        null|int $userid = null,
+        null|int $user_id = null,
         null|string $status = null,
         null|string $created = null,
         null|string $due_date = null,
@@ -174,7 +174,7 @@ class ProjectManagement extends LocalAPI
         return self::call('UpdateProject', self::payload([
             'projectid' => $project_id,
             'adminid' => $admin_id,
-            'userid' => $userid,
+            'userid' => $user_id,
             'status' => $status,
             'created' => $created,
             'duedate' => $due_date,

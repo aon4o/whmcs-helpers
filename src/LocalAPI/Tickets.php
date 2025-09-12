@@ -18,21 +18,21 @@ class Tickets extends LocalAPI
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
-    public function getSupportStatuses(null|int $deptid = null): array
+    public function getSupportStatuses(null|int $department_id = null): array
     {
-        return self::call('GetSupportStatuses', self::payload(['deptid' => $deptid]));
+        return self::call('GetSupportStatuses', self::payload(['deptid' => $department_id]));
     }
 
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function getTicket(
-        null|string $ticketnum = null,
-        null|int $ticketid = null,
+        null|string $ticket_num = null,
+        null|int $ticket_id = null,
         null|string $repliessort = null,
     ): array {
         return self::call('GetTicket',
-            self::payload(['ticketnum' => $ticketnum, 'ticketid' => $ticketid, 'repliessort' => $repliessort]));
+            self::payload(['ticketnum' => $ticket_num, 'ticketid' => $ticket_id, 'repliessort' => $repliessort]));
     }
 
     /**
@@ -60,9 +60,9 @@ class Tickets extends LocalAPI
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
-    public function getTicketNotes(int $ticketid): array
+    public function getTicketNotes(int $ticket_id): array
     {
-        return self::call('GetTicketNotes', self::payload(['ticketid' => $ticketid]));
+        return self::call('GetTicketNotes', self::payload(['ticketid' => $ticket_id]));
     }
 
     /**
@@ -87,7 +87,7 @@ class Tickets extends LocalAPI
     public function getTickets(
         null|int $limit_start = null,
         null|int $limit_num = null,
-        null|int $deptid = null,
+        null|int $department_id = null,
         null|int $client_id = null,
         null|string $email = null,
         null|string $status = null,
@@ -95,7 +95,8 @@ class Tickets extends LocalAPI
         null|bool $ignore_dept_assignments = null,
     ): array {
         return self::call('GetTickets', self::payload([
-            'limitstart' => $limit_start, 'limitnum' => $limit_num, 'deptid' => $deptid, 'clientid' => $client_id,
+            'limitstart' => $limit_start, 'limitnum' => $limit_num, 'deptid' => $department_id,
+            'clientid' => $client_id,
             'email' => $email, 'status' => $status, 'subject' => $subject,
             'ignore_dept_assignments' => $ignore_dept_assignments,
         ]));

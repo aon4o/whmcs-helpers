@@ -165,12 +165,12 @@ class System extends LocalAPI
         null|string $custommessage = null,
         null|string $customsubject = null,
         null|string $type = null,
-        null|int $deptid = null,
+        null|int $department_id = null,
         null|array $mergefields = null,
     ): array {
         return self::call('SendAdminEmail', self::payload([
             'messagename' => $messagename, 'custommessage' => $custommessage, 'customsubject' => $customsubject,
-            'type' => $type, 'deptid' => $deptid, 'mergefields' => $mergefields,
+            'type' => $type, 'deptid' => $department_id, 'mergefields' => $mergefields,
         ]));
     }
 
@@ -229,14 +229,14 @@ class System extends LocalAPI
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function updateAnnouncement(
-        string $announcementid,
+        string $announcement_id,
         null|string $title = null,
         null|string $announcement = null,
         null|string $date = null,
         null|bool $published = null,
     ): array {
         return self::call('UpdateAnnouncement', self::payload([
-            'announcementid' => $announcementid, 'title' => $title, 'announcement' => $announcement, 'date' => $date,
+            'announcementid' => $announcement_id, 'title' => $title, 'announcement' => $announcement, 'date' => $date,
             'published' => $published,
         ]));
     }
