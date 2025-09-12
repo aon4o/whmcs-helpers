@@ -38,10 +38,10 @@ class Tickets extends LocalAPI
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
-    public function getTicketAttachment(int $relatedid, string $type, int $index): array
+    public function getTicketAttachment(int $related_id, string $type, int $index): array
     {
         return self::call('GetTicketAttachment',
-            self::payload(['relatedid' => $relatedid, 'type' => $type, 'index' => $index]));
+            self::payload(['relatedid' => $related_id, 'type' => $type, 'index' => $index]));
     }
 
     /**

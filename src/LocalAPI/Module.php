@@ -9,43 +9,54 @@ class Module extends LocalAPI
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
-    public function activateModule(string $moduleType, string $moduleName, null|array $parameters = null): array
+    public function activateModule(string $module_type, string $module_name, null|array $parameters = null): array
     {
-        return self::call('ActivateModule',
-            self::payload(['moduleType' => $moduleType, 'moduleName' => $moduleName, 'parameters' => $parameters]));
+        return self::call('ActivateModule', self::payload([
+            'moduleType' => $module_type,
+            'moduleName' => $module_name,
+            'parameters' => $parameters,
+        ]));
     }
 
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
-    public function deactivateModule(string $moduleType, string $moduleName, null|string $newGateway = null): array
+    public function deactivateModule(string $module_type, string $module_name, null|string $new_gateway = null): array
     {
-        return self::call('DeactivateModule',
-            self::payload(['moduleType' => $moduleType, 'moduleName' => $moduleName, 'newGateway' => $newGateway]));
+        return self::call('DeactivateModule', self::payload([
+            'moduleType' => $module_type,
+            'moduleName' => $module_name,
+            'newGateway' => $new_gateway,
+        ]));
     }
 
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
-    public function getModuleConfigurationParameters(string $moduleType, string $moduleName): array
+    public function getModuleConfigurationParameters(string $module_type, string $module_name): array
     {
-        return self::call('GetModuleConfigurationParameters',
-            self::payload(['moduleType' => $moduleType, 'moduleName' => $moduleName]));
+        return self::call('GetModuleConfigurationParameters', self::payload([
+            'moduleType' => $module_type,
+            'moduleName' => $module_name,
+        ]));
     }
 
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function getModuleQueue(
-        null|int $relatedId = null,
-        null|string $serviceType = null,
-        null|string $moduleName = null,
-        null|string $moduleAction = null,
+        null|int $related_id = null,
+        null|string $service_type = null,
+        null|string $module_name = null,
+        null|string $module_action = null,
         null|string $since = null,
     ): array {
         return self::call('GetModuleQueue', self::payload([
-            'relatedId' => $relatedId, 'serviceType' => $serviceType, 'moduleName' => $moduleName,
-            'moduleAction' => $moduleAction, 'since' => $since,
+            'relatedId' => $related_id,
+            'serviceType' => $service_type,
+            'moduleName' => $module_name,
+            'moduleAction' => $module_action,
+            'since' => $since,
         ]));
     }
 
@@ -53,11 +64,14 @@ class Module extends LocalAPI
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function updateModuleConfiguration(
-        string $moduleType,
-        string $moduleName,
+        string $module_type,
+        string $module_name,
         null|array $parameters = null,
     ): array {
-        return self::call('UpdateModuleConfiguration',
-            self::payload(['moduleType' => $moduleType, 'moduleName' => $moduleName, 'parameters' => $parameters]));
+        return self::call('UpdateModuleConfiguration', self::payload([
+            'moduleType' => $module_type,
+            'moduleName' => $module_name,
+            'parameters' => $parameters,
+        ]));
     }
 }
