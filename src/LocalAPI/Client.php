@@ -250,7 +250,7 @@ class Client extends LocalAPI
         null|int $limit_num = null,
         null|int $client_id = null,
         null|int $service_id = null,
-        null|int $pid = null,
+        null|int $product_id = null,
         null|string $domain = null,
         null|string $username2 = null,
     ): array {
@@ -259,7 +259,7 @@ class Client extends LocalAPI
             'limitnum' => $limit_num,
             'clientid' => $client_id,
             'serviceid' => $service_id,
-            'pid' => $pid,
+            'pid' => $product_id,
             'domain' => $domain,
             'username2' => $username2,
         ]));

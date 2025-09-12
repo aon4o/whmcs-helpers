@@ -18,11 +18,11 @@ class Servers extends LocalAPI
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function getServers(
-        null|int $serviceId = null,
-        null|int $addonId = null,
+        null|int $service_id = null,
+        null|int $addon_id = null,
         null|bool $fetchStatus = null,
     ): array {
         return self::call('GetServers',
-            self::payload(['serviceId' => $serviceId, 'addonId' => $addonId, 'fetchStatus' => $fetchStatus]));
+            self::payload(['serviceId' => $service_id, 'addonId' => $addon_id, 'fetchStatus' => $fetchStatus]));
     }
 }

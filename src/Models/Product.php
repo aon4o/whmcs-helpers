@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property int $id
  * @property string $type
- * @property int $gid group id
+ * @property int $group_id group id
  * @property string $name
  * @property string $slug
  * @property string $description
@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property bool $showdomainoptions
  * @property int $welcomeemail
  * @property bool $stockcontrol
- * @property int $qty
+ * @property int $quantity
  * @property bool $proratabilling
  * @property int $proratadate
  * @property int $proratachargenextmonth
@@ -57,8 +57,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $recurringcycles
  * @property int $autoterminatedays
  * @property int $autoterminateemail
- * @property bool $configoptionsupgrade
- * @property string $billingcycleupgrade
+ * @property bool $config_optionsupgrade
+ * @property string $billing_cycleupgrade
  * @property int $upgradeemail
  * @property string $overagesenabled
  * @property int $overagesdisklimit

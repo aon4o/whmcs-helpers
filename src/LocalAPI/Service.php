@@ -69,7 +69,7 @@ class Service extends LocalAPI
      */
     public function updateClientProduct(
         int $service_id,
-        null|int $pid = null,
+        null|int $product_id = null,
         null|int $server_id = null,
         null|string $reg_date = null,
         null|string $next_due_date = null,
@@ -102,14 +102,16 @@ class Service extends LocalAPI
         null|string $config_options = null,
     ): array {
         return self::call('UpdateClientProduct', self::payload([
-            'serviceid' => $service_id, 'pid' => $pid, 'serverid' => $server_id, 'regdate' => $reg_date,
+            'serviceid' => $service_id, 'pid' => $product_id, 'serverid' => $server_id, 'regdate' => $reg_date,
             'nextduedate' => $next_due_date, 'terminationdate' => $termination_date, 'domain' => $domain,
             'firstpaymentamount' => $first_payment_amount, 'recurringamount' => $recurring_amount,
             'paymentmethod' => $payment_method, 'billingcycle' => $billing_cycle, 'subscriptionid' => $subscription_id,
             'status' => $status, 'notes' => $notes, 'serviceusername' => $service_username,
             'servicepassword' => $service_password, 'overideautosuspend' => $override_auto_suspend,
-            'overidesuspenduntil' => $override_suspend_until, 'ns1' => $ns1, 'ns2' => $ns2, 'dedicatedip' => $dedicated_ip,
-            'assignedips' => $assigned_ips, 'diskusage' => $disk_usage, 'disklimit' => $disk_limit, 'bwusage' => $bw_usage,
+            'overidesuspenduntil' => $override_suspend_until, 'ns1' => $ns1, 'ns2' => $ns2,
+            'dedicatedip' => $dedicated_ip,
+            'assignedips' => $assigned_ips, 'diskusage' => $disk_usage, 'disklimit' => $disk_limit,
+            'bwusage' => $bw_usage,
             'bwlimit' => $bw_limit, 'suspendreason' => $suspend_reason, 'promoid' => $promo_id, 'unset' => $unset,
             'autorecalc' => $auto_recalc, 'customfields' => $custom_fields, 'configoptions' => $config_options,
         ]));

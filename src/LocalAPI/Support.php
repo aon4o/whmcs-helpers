@@ -23,10 +23,10 @@ class Support extends LocalAPI
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
-    public function addCancelRequest(int $serviceid, null|string $type = null, null|string $reason = null): array
+    public function addCancelRequest(int $service_id, null|string $type = null, null|string $reason = null): array
     {
         return self::call('AddCancelRequest',
-            self::payload(['serviceid' => $serviceid, 'type' => $type, 'reason' => $reason]));
+            self::payload(['serviceid' => $service_id, 'type' => $type, 'reason' => $reason]));
     }
 
     /**
@@ -63,20 +63,21 @@ class Support extends LocalAPI
         string $message,
         null|bool $markdown = null,
         null|int $client_id = null,
-        null|int $contactid = null,
+        null|int $contact_id = null,
         null|string $adminusername = null,
         null|string $name = null,
         null|string $email = null,
         null|string $status = null,
-        null|bool $noemail = null,
-        null|string $customfields = null,
+        null|bool $no_email = null,
+        null|string $custom_fields = null,
         null|array $attachments = null,
         null|string $created = null,
     ): array {
         return self::call('AddTicketReply', self::payload([
             'ticketid' => $ticketid, 'message' => $message, 'markdown' => $markdown, 'clientid' => $client_id,
-            'contactid' => $contactid, 'adminusername' => $adminusername, 'name' => $name, 'email' => $email,
-            'status' => $status, 'noemail' => $noemail, 'customfields' => $customfields, 'attachments' => $attachments,
+            'contactid' => $contact_id, 'adminusername' => $adminusername, 'name' => $name, 'email' => $email,
+            'status' => $status, 'noemail' => $no_email, 'customfields' => $custom_fields,
+            'attachments' => $attachments,
             'created' => $created,
         ]));
     }
@@ -148,25 +149,26 @@ class Support extends LocalAPI
         string $message,
         null|int $client_id = null,
         null|int $userid = null,
-        null|int $contactid = null,
+        null|int $contact_id = null,
         null|string $name = null,
         null|string $email = null,
         null|string $priority = null,
         null|string $created = null,
-        null|int $serviceid = null,
+        null|int $service_id = null,
         null|int $domain_id = null,
         null|bool $admin = null,
-        null|bool $noemail = null,
+        null|bool $no_email = null,
         null|bool $markdown = null,
-        null|string $customfields = null,
+        null|string $custom_fields = null,
         null|array $attachments = null,
         null|bool $preventClientClosure = null,
     ): array {
         return self::call('OpenTicket', self::payload([
             'deptid' => $deptid, 'subject' => $subject, 'message' => $message, 'clientid' => $client_id,
-            'userid' => $userid, 'contactid' => $contactid, 'name' => $name, 'email' => $email, 'priority' => $priority,
-            'created' => $created, 'serviceid' => $serviceid, 'domainid' => $domain_id, 'admin' => $admin,
-            'noemail' => $noemail, 'markdown' => $markdown, 'customfields' => $customfields,
+            'userid' => $userid, 'contactid' => $contact_id, 'name' => $name, 'email' => $email,
+            'priority' => $priority,
+            'created' => $created, 'serviceid' => $service_id, 'domainid' => $domain_id, 'admin' => $admin,
+            'noemail' => $no_email, 'markdown' => $markdown, 'customfields' => $custom_fields,
             'attachments' => $attachments, 'preventClientClosure' => $preventClientClosure,
         ]));
     }
@@ -189,14 +191,14 @@ class Support extends LocalAPI
         null|bool $removeFlag = null,
         null|string $message = null,
         null|bool $markdown = null,
-        null|string $customfields = null,
+        null|string $custom_fields = null,
         null|bool $preventClientClosure = null,
     ): array {
         return self::call('UpdateTicket', self::payload([
             'ticketid' => $ticketid, 'deptid' => $deptid, 'status' => $status, 'subject' => $subject,
             'userid' => $userid, 'name' => $name, 'email' => $email, 'cc' => $cc, 'priority' => $priority,
             'created' => $created, 'flag' => $flag, 'removeFlag' => $removeFlag, 'message' => $message,
-            'markdown' => $markdown, 'customfields' => $customfields, 'preventClientClosure' => $preventClientClosure,
+            'markdown' => $markdown, 'customfields' => $custom_fields, 'preventClientClosure' => $preventClientClosure,
         ]));
     }
 

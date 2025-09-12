@@ -15,7 +15,7 @@ This is where your description should go. Try and limit it to a paragraph or two
 - [x] [Client.php](src/LocalAPI/Client.php)
 - [x] [Domains.php](src/LocalAPI/Domains.php)
 - [x] [Module.php](src/LocalAPI/Module.php)
-- [ ] [Orders.php](src/LocalAPI/Orders.php)
+- [x] [Orders.php](src/LocalAPI/Orders.php)
 - [x] [Products.php](src/LocalAPI/Products.php)
 - [ ] [ProjectManagement.php](src/LocalAPI/ProjectManagement.php)
 - [ ] [Servers.php](src/LocalAPI/Servers.php)

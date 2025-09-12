@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property int $id
  * @property int $invoiceid
- * @property $serviceid
+ * @property $service_id
  * @property $fieldid
  * @property $optionid
  * @property $paid

@@ -20,9 +20,14 @@ class Orders extends LocalAPI
         null|bool $send_email = null,
     ): array {
         return self::call('AcceptOrder', self::payload([
-            'orderid' => $order_id, 'serverid' => $server_id, 'serviceusername' => $service_username,
-            'servicepassword' => $service_password, 'registrar' => $registrar, 'sendregistrar' => $send_registrar,
-            'autosetup' => $auto_setup, 'sendemail' => $send_email,
+            'orderid' => $order_id,
+            'serverid' => $server_id,
+            'serviceusername' => $service_username,
+            'servicepassword' => $service_password,
+            'registrar' => $registrar,
+            'sendregistrar' => $send_registrar,
+            'autosetup' => $auto_setup,
+            'sendemail' => $send_email,
         ]));
     }
 
@@ -32,69 +37,100 @@ class Orders extends LocalAPI
     public function addOrder(
         int $client_id,
         string $payment_method,
-        null|string $pid = null,
-        null|string $qty = null,
+        null|string $product_id = null,
+        null|string $quantity = null,
         null|string $domain = null,
-        null|string $billingcycle = null,
-        null|string $domaintype = null,
-        null|string $regperiod = null,
-        null|string $idnlanguage = null,
-        null|string $eppcode = null,
+        null|string $billing_cycle = null,
+        null|string $domain_type = null,
+        null|string $registration_period = null,
+        null|string $idn_language = null,
+        null|string $epp_code = null,
         null|string $nameserver1 = null,
         null|string $nameserver2 = null,
         null|string $nameserver3 = null,
         null|string $nameserver4 = null,
         null|string $nameserver5 = null,
-        null|string $customfields = null,
-        null|string $configoptions = null,
-        null|string $priceoverride = null,
-        null|string $promocode = null,
-        null|bool $promooverride = null,
-        null|int $affid = null,
-        null|bool $noinvoice = null,
-        null|bool $noinvoiceemail = null,
-        null|bool $noemail = null,
+        null|string $custom_fields = null,
+        null|string $config_options = null,
+        null|string $price_override = null,
+        null|string $promo_code = null,
+        null|bool $promo_override = null,
+        null|int $affiliate_id = null,
+        null|bool $no_invoice = null,
+        null|bool $no_invoice_email = null,
+        null|bool $no_email = null,
         null|string $addons = null,
-        null|string $addonsqty = null,
+        null|string $addons_quantity = null,
         null|string $hostname = null,
         null|string $ns1prefix = null,
         null|string $ns2prefix = null,
-        null|string $rootpw = null,
-        null|int $contactid = null,
-        null|string $dnsmanagement = null,
-        null|string $domainfields = null,
-        null|string $emailforwarding = null,
-        null|string $idprotection = null,
-        null|string $domainpriceoverride = null,
-        null|string $domainrenewoverride = null,
-        null|array $domainrenewals = null,
-        null|string $clientip = null,
-        null|int $addonid = null,
-        null|int $addonidqty = null,
-        null|int $serviceid = null,
-        null|string $addonids = null,
-        null|string $addonidsqty = null,
-        null|string $serviceids = null,
-        null|string $servicerenewals = null,
-        null|string $addonrenewals = null,
+        null|string $root_password = null,
+        null|int $contact_id = null,
+        null|string $dns_management = null,
+        null|string $domain_fields = null,
+        null|string $email_forwarding = null,
+        null|string $id_protection = null,
+        null|string $domain_price_override = null,
+        null|string $domain_renew_override = null,
+        null|array $domain_renewals = null,
+        null|string $client_ip = null,
+        null|int $addon_id = null,
+        null|int $addon_id_quantity = null,
+        null|int $service_id = null,
+        null|string $addon_ids = null,
+        null|string $addon_ids_quantity = null,
+        null|string $service_ids = null,
+        null|string $service_renewals = null,
+        null|string $addon_renewals = null,
     ): array {
         return self::call('AddOrder', self::payload([
-            'clientid' => $client_id, 'paymentmethod' => $payment_method, 'pid' => $pid, 'qty' => $qty,
-            'domain' => $domain, 'billingcycle' => $billingcycle, 'domaintype' => $domaintype,
-            'regperiod' => $regperiod, 'idnlanguage' => $idnlanguage, 'eppcode' => $eppcode,
-            'nameserver1' => $nameserver1, 'nameserver2' => $nameserver2, 'nameserver3' => $nameserver3,
-            'nameserver4' => $nameserver4, 'nameserver5' => $nameserver5, 'customfields' => $customfields,
-            'configoptions' => $configoptions, 'priceoverride' => $priceoverride, 'promocode' => $promocode,
-            'promooverride' => $promooverride, 'affid' => $affid, 'noinvoice' => $noinvoice,
-            'noinvoiceemail' => $noinvoiceemail, 'noemail' => $noemail, 'addons' => $addons, 'addonsqty' => $addonsqty,
-            'hostname' => $hostname, 'ns1prefix' => $ns1prefix, 'ns2prefix' => $ns2prefix, 'rootpw' => $rootpw,
-            'contactid' => $contactid, 'dnsmanagement' => $dnsmanagement, 'domainfields' => $domainfields,
-            'emailforwarding' => $emailforwarding, 'idprotection' => $idprotection,
-            'domainpriceoverride' => $domainpriceoverride, 'domainrenewoverride' => $domainrenewoverride,
-            'domainrenewals' => $domainrenewals, 'clientip' => $clientip, 'addonid' => $addonid,
-            'addonidqty' => $addonidqty, 'serviceid' => $serviceid, 'addonids' => $addonids,
-            'addonidsqty' => $addonidsqty, 'serviceids' => $serviceids, 'servicerenewals' => $servicerenewals,
-            'addonrenewals' => $addonrenewals,
+            'clientid' => $client_id,
+            'paymentmethod' => $payment_method,
+            'pid' => $product_id,
+            'qty' => $quantity,
+            'domain' => $domain,
+            'billingcycle' => $billing_cycle,
+            'domaintype' => $domain_type,
+            'regperiod' => $registration_period,
+            'idnlanguage' => $idn_language,
+            'eppcode' => $epp_code,
+            'nameserver1' => $nameserver1,
+            'nameserver2' => $nameserver2,
+            'nameserver3' => $nameserver3,
+            'nameserver4' => $nameserver4,
+            'nameserver5' => $nameserver5,
+            'customfields' => $custom_fields,
+            'configoptions' => $config_options,
+            'priceoverride' => $price_override,
+            'promocode' => $promo_code,
+            'promooverride' => $promo_override,
+            'affid' => $affiliate_id,
+            'noinvoice' => $no_invoice,
+            'noinvoiceemail' => $no_invoice_email,
+            'noemail' => $no_email,
+            'addons' => $addons,
+            'addonsqty' => $addons_quantity,
+            'hostname' => $hostname,
+            'ns1prefix' => $ns1prefix,
+            'ns2prefix' => $ns2prefix,
+            'rootpw' => $root_password,
+            'contactid' => $contact_id,
+            'dnsmanagement' => $dns_management,
+            'domainfields' => $domain_fields,
+            'emailforwarding' => $email_forwarding,
+            'idprotection' => $id_protection,
+            'domainpriceoverride' => $domain_price_override,
+            'domainrenewoverride' => $domain_renew_override,
+            'domainrenewals' => $domain_renewals,
+            'clientip' => $client_ip,
+            'addonid' => $addon_id,
+            'addonidqty' => $addon_id_quantity,
+            'serviceid' => $service_id,
+            'addonids' => $addon_ids,
+            'addonidsqty' => $addon_ids_quantity,
+            'serviceids' => $service_ids,
+            'servicerenewals' => $service_renewals,
+            'addonrenewals' => $addon_renewals,
         ]));
     }
 
@@ -103,8 +139,11 @@ class Orders extends LocalAPI
      */
     public function cancelOrder(int $order_id, null|bool $cancel_sub = null, null|bool $no_email = null): array
     {
-        return self::call('CancelOrder',
-            self::payload(['orderid' => $order_id, 'cancelsub' => $cancel_sub, 'noemail' => $no_email]));
+        return self::call('CancelOrder', self::payload([
+            'orderid' => $order_id,
+            'cancelsub' => $cancel_sub,
+            'noemail' => $no_email,
+        ]));
     }
 
     /**
@@ -135,8 +174,12 @@ class Orders extends LocalAPI
         null|string $status = null,
     ): array {
         return self::call('GetOrders', self::payload([
-            'limitstart' => $limit_start, 'limitnum' => $limit_num, 'id' => $id, 'userid' => $user_id,
-            'requestor_id' => $requestor_id, 'status' => $status,
+            'limitstart' => $limit_start,
+            'limitnum' => $limit_num,
+            'id' => $id,
+            'userid' => $user_id,
+            'requestor_id' => $requestor_id,
+            'status' => $status,
         ]));
     }
 
@@ -151,9 +194,16 @@ class Orders extends LocalAPI
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
-    public function getProducts(null|int $pid = null, null|int $gid = null, null|string $module_name = null): array
-    {
-        return self::call('GetProducts', self::payload(['pid' => $pid, 'gid' => $gid, 'module' => $module_name]));
+    public function getProducts(
+        null|int $product_id = null,
+        null|int $group_id = null,
+        null|string $module_name = null,
+    ): array {
+        return self::call('GetProducts', self::payload([
+            'pid' => $product_id,
+            'gid' => $group_id,
+            'module' => $module_name,
+        ]));
     }
 
     /**
