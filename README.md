@@ -6,25 +6,6 @@
 
 This is where your description should go. Try and limit it to a paragraph or two. Consider adding a small example.
 
-## API params fix
-
-- [x] [Addons.php](src/LocalAPI/Addons.php)
-- [x] [Affiliates.php](src/LocalAPI/Affiliates.php)
-- [x] [Authentication.php](src/LocalAPI/Authentication.php)
-- [x] [Billing.php](src/LocalAPI/Billing.php)
-- [x] [Client.php](src/LocalAPI/Client.php)
-- [x] [Domains.php](src/LocalAPI/Domains.php)
-- [x] [Module.php](src/LocalAPI/Module.php)
-- [x] [Orders.php](src/LocalAPI/Orders.php)
-- [x] [Products.php](src/LocalAPI/Products.php)
-- [x] [ProjectManagement.php](src/LocalAPI/ProjectManagement.php)
-- [x] [Servers.php](src/LocalAPI/Servers.php)
-- [x] [Service.php](src/LocalAPI/Service.php)
-- [x] [Support.php](src/LocalAPI/Support.php)
-- [x] [System.php](src/LocalAPI/System.php)
-- [x] [Tickets.php](src/LocalAPI/Tickets.php)
-- [ ] [Users.php](src/LocalAPI/Users.php)
-
 ## Support us
 
 [<img src="https://github-ads.s3.eu-central-1.amazonaws.com/whmcs-helpers.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/whmcs-helpers)

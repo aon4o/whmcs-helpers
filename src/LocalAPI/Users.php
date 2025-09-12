@@ -10,14 +10,17 @@ class Users extends LocalAPI
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function addUser(
-        string $firstname,
-        string $lastname,
+        string $first_name,
+        string $last_name,
         string $email,
         string $password2,
         null|string $language = null,
     ): array {
         return self::call('AddUser', self::payload([
-            'firstname' => $firstname, 'lastname' => $lastname, 'email' => $email, 'password2' => $password2,
+            'firstname' => $first_name,
+            'lastname' => $last_name,
+            'email' => $email,
+            'password2' => $password2,
             'language' => $language,
         ]));
     }
@@ -27,8 +30,11 @@ class Users extends LocalAPI
      */
     public function createClientInvite(string $client_id, string $email, string $permissions): array
     {
-        return self::call('CreateClientInvite',
-            self::payload(['client_id' => $client_id, 'email' => $email, 'permissions' => $permissions]));
+        return self::call('CreateClientInvite', self::payload([
+            'client_id' => $client_id,
+            'email' => $email,
+            'permissions' => $permissions,
+        ]));
     }
 
     /**
@@ -65,7 +71,10 @@ class Users extends LocalAPI
         null|string $search = null,
     ): array {
         return self::call('GetUsers', self::payload([
-            'limitstart' => $limit_start, 'limitnum' => $limit_num, 'sorting' => $sorting, 'search' => $search,
+            'limitstart' => $limit_start,
+            'limitnum' => $limit_num,
+            'sorting' => $sorting,
+            'search' => $search,
         ]));
     }
 
@@ -82,13 +91,16 @@ class Users extends LocalAPI
      */
     public function updateUser(
         int $user_id,
-        null|string $firstname = null,
-        null|string $lastname = null,
+        null|string $first_name = null,
+        null|string $last_name = null,
         null|string $email = null,
         null|string $language = null,
     ): array {
         return self::call('UpdateUser', self::payload([
-            'user_id' => $user_id, 'firstname' => $firstname, 'lastname' => $lastname, 'email' => $email,
+            'user_id' => $user_id,
+            'firstname' => $first_name,
+            'lastname' => $last_name,
+            'email' => $email,
             'language' => $language,
         ]));
     }
@@ -98,7 +110,10 @@ class Users extends LocalAPI
      */
     public function updateUserPermissions(int $user_id, int $client_id, string $permissions): array
     {
-        return self::call('UpdateUserPermissions',
-            self::payload(['user_id' => $user_id, 'client_id' => $client_id, 'permissions' => $permissions]));
+        return self::call('UpdateUserPermissions', self::payload([
+            'user_id' => $user_id,
+            'client_id' => $client_id,
+            'permissions' => $permissions,
+        ]));
     }
 }
