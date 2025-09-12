@@ -59,13 +59,13 @@ class Users extends LocalAPI
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function getUsers(
-        null|int $limitstart = null,
-        null|int $limitnum = null,
+        null|int $limit_start = null,
+        null|int $limit_num = null,
         null|string $sorting = null,
         null|string $search = null,
     ): array {
         return self::call('GetUsers', self::payload([
-            'limitstart' => $limitstart, 'limitnum' => $limitnum, 'sorting' => $sorting, 'search' => $search,
+            'limitstart' => $limit_start, 'limitnum' => $limit_num, 'sorting' => $sorting, 'search' => $search,
         ]));
     }
 

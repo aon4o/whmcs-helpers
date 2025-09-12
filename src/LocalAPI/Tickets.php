@@ -85,8 +85,8 @@ class Tickets extends LocalAPI
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function getTickets(
-        null|int $limitstart = null,
-        null|int $limitnum = null,
+        null|int $limit_start = null,
+        null|int $limit_num = null,
         null|int $deptid = null,
         null|int $client_id = null,
         null|string $email = null,
@@ -95,7 +95,7 @@ class Tickets extends LocalAPI
         null|bool $ignore_dept_assignments = null,
     ): array {
         return self::call('GetTickets', self::payload([
-            'limitstart' => $limitstart, 'limitnum' => $limitnum, 'deptid' => $deptid, 'clientid' => $client_id,
+            'limitstart' => $limit_start, 'limitnum' => $limit_num, 'deptid' => $deptid, 'clientid' => $client_id,
             'email' => $email, 'status' => $status, 'subject' => $subject,
             'ignore_dept_assignments' => $ignore_dept_assignments,
         ]));

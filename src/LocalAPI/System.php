@@ -35,8 +35,8 @@ class System extends LocalAPI
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function getActivityLog(
-        null|int $limitstart = null,
-        null|int $limitnum = null,
+        null|int $limit_start = null,
+        null|int $limit_num = null,
         null|int $client_id = null,
         null|string $date = null,
         null|string $user = null,
@@ -44,7 +44,7 @@ class System extends LocalAPI
         null|string $ipaddress = null,
     ): array {
         return self::call('GetActivityLog', self::payload([
-            'limitstart' => $limitstart, 'limitnum' => $limitnum, 'clientid' => $client_id, 'date' => $date,
+            'limitstart' => $limit_start, 'limitnum' => $limit_num, 'clientid' => $client_id, 'date' => $date,
             'user' => $user, 'description' => $description, 'ipaddress' => $ipaddress,
         ]));
     }
@@ -133,12 +133,12 @@ class System extends LocalAPI
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
     public function getToDoItems(
-        null|int $limitstart = null,
-        null|int $limitnum = null,
+        null|int $limit_start = null,
+        null|int $limit_num = null,
         null|string $status = null,
     ): array {
         return self::call('GetToDoItems',
-            self::payload(['limitstart' => $limitstart, 'limitnum' => $limitnum, 'status' => $status]));
+            self::payload(['limitstart' => $limit_start, 'limitnum' => $limit_num, 'status' => $status]));
     }
 
     /**
@@ -246,16 +246,16 @@ class System extends LocalAPI
      */
     public function updateToDoItem(
         int $itemid,
-        int $adminid,
+        int $admin_id,
         null|string $status = null,
         null|int $date = null,
         null|string $title = null,
         null|string $description = null,
-        null|int $duedate = null,
+        null|int $due_date = null,
     ): array {
         return self::call('UpdateToDoItem', self::payload([
-            'itemid' => $itemid, 'adminid' => $adminid, 'status' => $status, 'date' => $date, 'title' => $title,
-            'description' => $description, 'duedate' => $duedate,
+            'itemid' => $itemid, 'adminid' => $admin_id, 'status' => $status, 'date' => $date, 'title' => $title,
+            'description' => $description, 'duedate' => $due_date,
         ]));
     }
 

@@ -125,9 +125,9 @@ class Support extends LocalAPI
     /**
      * @link https://developers.whmcs.com/api-reference/{$slug}/
      */
-    public function getAnnouncements(null|int $limitstart = null, null|int $limitnum = null): array
+    public function getAnnouncements(null|int $limit_start = null, null|int $limit_num = null): array
     {
-        return self::call('GetAnnouncements', self::payload(['limitstart' => $limitstart, 'limitnum' => $limitnum]));
+        return self::call('GetAnnouncements', self::payload(['limitstart' => $limit_start, 'limitnum' => $limit_num]));
     }
 
     /**
