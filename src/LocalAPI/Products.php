@@ -7,7 +7,7 @@ use Aon4o\WhmcsHelpers\Interfaces\LocalAPI;
 class Products extends LocalAPI
 {
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/addproduct/
      */
     public function addProduct(
         string $name,
