@@ -7,7 +7,7 @@ use Aon4o\WhmcsHelpers\Interfaces\LocalAPI;
 class Domains extends LocalAPI
 {
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/createorupdatetld/
      */
     public function createOrUpdateTLD(
         string $extension,
@@ -48,7 +48,7 @@ class Domains extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/domaingetlockingstatus/
      */
     public function getLockingStatus(int $domain_id): array
     {
@@ -56,7 +56,7 @@ class Domains extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/domaingetnameservers/
      */
     public function getNameservers(int $domain_id): array
     {
@@ -64,7 +64,7 @@ class Domains extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/domaingetwhoisinfo/
      */
     public function getWhoisInfo(int $domain_id): array
     {
@@ -72,7 +72,7 @@ class Domains extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/domainregister/
      */
     public function register(
         null|int $domain_id = null,
@@ -84,7 +84,7 @@ class Domains extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/domainrelease/
      */
     public function release(null|int $domain_id = null, null|string $domain = null, string $new_tag): array
     {
@@ -96,7 +96,7 @@ class Domains extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/domainrenew/
      */
     public function renew(
         null|int $domain_id = null,
@@ -111,18 +111,23 @@ class Domains extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/domainrequestepp/
      */
-    public function requestEPP(int $domain_id): array
-    {
-        return self::call('DomainRequestEPP', self::payload(['domainid' => $domain_id]));
+    public function requestEPP(
+        int $domain_id,
+    ): array {
+        return self::call('DomainRequestEPP', self::payload([
+            'domainid' => $domain_id,
+        ]));
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/domaintoggleidprotect/
      */
-    public function toggleIdProtect(int $domain_id, null|bool $id_protect = null): array
-    {
+    public function toggleIdProtect(
+        int $domain_id,
+        bool|null $id_protect = null,
+    ): array {
         return self::call('DomainToggleIdProtect', self::payload([
             'domainid' => $domain_id,
             'idprotect' => $id_protect,
@@ -130,10 +135,13 @@ class Domains extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/domaintransfer/
      */
-    public function transfer(null|int $domain_id = null, null|string $domain = null, null|int $epp_code = null): array
-    {
+    public function transfer(
+        int|null $domain_id = null,
+        string|null $domain = null,
+        int|null $epp_code = null,
+    ): array {
         return self::call('DomainTransfer', self::payload([
             'domainid' => $domain_id,
             'domain' => $domain,
@@ -142,7 +150,7 @@ class Domains extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/domainupdatelockingstatus/
      */
     public function updateLockingStatus(int $domain_id, null|bool $lock_status = null): array
     {
@@ -153,16 +161,16 @@ class Domains extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/domainupdatenameservers/
      */
     public function updateNameservers(
         null|int $domain_id = null,
         null|string $domain = null,
         string $ns1,
         string $ns2,
-        null|string $ns3 = null,
-        null|string $ns4 = null,
-        null|string $ns5 = null,
+        string|null $ns3 = null,
+        string|null $ns4 = null,
+        string|null $ns5 = null,
     ): array {
         return self::call('DomainUpdateNameservers', self::payload([
             'domainid' => $domain_id,
@@ -176,7 +184,7 @@ class Domains extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/domainupdatewhoisinfo/
      */
     public function updateWhoisInfo(int $domain_id, string $xml): array
     {
@@ -184,15 +192,18 @@ class Domains extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/domainwhois/
      */
-    public function whois(string $domain): array
-    {
-        return self::call('DomainWhois', self::payload(['domain' => $domain]));
+    public function whois(
+        string $domain,
+    ): array {
+        return self::call('DomainWhois', self::payload([
+            'domain' => $domain,
+        ]));
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/getregistrars/
      */
     public function getRegistrars(): array
     {
@@ -200,7 +211,7 @@ class Domains extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/gettldpricing/
      */
     public function getTLDPricing(null|int $currency_id = null, null|int $client_id = null): array
     {
@@ -208,7 +219,7 @@ class Domains extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/updateclientdomain/
      */
     public function updateClientDomain(
         int $domain_id,
