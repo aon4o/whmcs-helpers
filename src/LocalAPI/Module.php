@@ -7,7 +7,7 @@ use Aon4o\WhmcsHelpers\Interfaces\LocalAPI;
 class Module extends LocalAPI
 {
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/activatemodule/
      */
     public function activateModule(string $module_type, string $module_name, null|array $parameters = null): array
     {
@@ -19,7 +19,7 @@ class Module extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/deactivatemodule/
      */
     public function deactivateModule(string $module_type, string $module_name, null|string $new_gateway = null): array
     {
@@ -31,7 +31,7 @@ class Module extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/getmoduleconfigurationparameters/
      */
     public function getModuleConfigurationParameters(string $module_type, string $module_name): array
     {
@@ -42,7 +42,7 @@ class Module extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/getmodulequeue/
      */
     public function getModuleQueue(
         null|int $related_id = null,
@@ -61,7 +61,7 @@ class Module extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/updatemoduleconfiguration/
      */
     public function updateModuleConfiguration(
         string $module_type,
