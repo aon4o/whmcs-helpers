@@ -7,20 +7,23 @@ use Aon4o\WhmcsHelpers\Interfaces\LocalAPI;
 class Servers extends LocalAPI
 {
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/gethealthstatus/
      */
-    public function getHealthStatus(null|bool $fetch_status = null): array
-    {
-        return self::call('GetHealthStatus', self::payload(['fetchStatus' => $fetch_status]));
+    public function getHealthStatus(
+        bool|null $fetch_status = null,
+    ): array {
+        return self::call('GetHealthStatus', self::payload([
+            'fetchStatus' => $fetch_status,
+        ]));
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/getservers/
      */
     public function getServers(
-        null|int $service_id = null,
-        null|int $addon_id = null,
-        null|bool $fetch_status = null,
+        int|null $service_id = null,
+        int|null $addon_id = null,
+        bool|null $fetch_status = null,
     ): array {
         return self::call('GetServers', self::payload([
             'serviceId' => $service_id,
