@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property int $userid
  * @property int $orderid
- * @property int $packageid
+ * @property int $packageid The id of the Product (tblproducts.id)
  * @property int $server
  * @property string|null $regdate date (YYYY-MM-DD)
  * @property string|null $domain text
