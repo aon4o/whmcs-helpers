@@ -7,13 +7,13 @@ use Aon4o\WhmcsHelpers\Interfaces\LocalAPI;
 class Support extends LocalAPI
 {
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/addannouncement/
      */
     public function addAnnouncement(
         string $date,
         string $title,
         string $announcement,
-        null|bool $published = null,
+        bool|null $published = null,
     ): array {
         return self::call('AddAnnouncement', self::payload([
             'date' => $date,
@@ -24,10 +24,13 @@ class Support extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/addcancelrequest/
      */
-    public function addCancelRequest(int $service_id, null|string $type = null, null|string $reason = null): array
-    {
+    public function addCancelRequest(
+        int $service_id,
+        string|null $type = null,
+        string|null $reason = null,
+    ): array {
         return self::call('AddCancelRequest', self::payload([
             'serviceid' => $service_id,
             'type' => $type,
@@ -36,10 +39,13 @@ class Support extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/addclientnote/
      */
-    public function addClientNote(int $user_id, string $notes, null|bool $sticky = null): array
-    {
+    public function addClientNote(
+        int $user_id,
+        string $notes,
+        bool|null $sticky = null,
+    ): array {
         return self::call('AddClientNote', self::payload([
             'userid' => $user_id,
             'notes' => $notes,
@@ -48,15 +54,15 @@ class Support extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/addticketnote/
      */
     public function addTicketNote(
         string $message,
-        null|string $ticket_num = null,
-        null|int $ticket_id = null,
-        null|bool $markdown = null,
-        null|array $attachments = null,
-        null|string $created = null,
+        string|null $ticket_num = null,
+        int|null $ticket_id = null,
+        bool|null $markdown = null,
+        array|null $attachments = null,
+        string|null $created = null,
     ): array {
         return self::call('AddTicketNote', self::payload([
             'message' => $message,
@@ -69,22 +75,22 @@ class Support extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/addticketreply/
      */
     public function addTicketReply(
         int $ticket_id,
         string $message,
-        null|bool $markdown = null,
-        null|int $client_id = null,
-        null|int $contact_id = null,
-        null|string $admin_username = null,
-        null|string $name = null,
-        null|string $email = null,
-        null|string $status = null,
-        null|bool $no_email = null,
-        null|string $custom_fields = null,
-        null|array $attachments = null,
-        null|string $created = null,
+        bool|null $markdown = null,
+        int|null $client_id = null,
+        int|null $contact_id = null,
+        string|null $admin_username = null,
+        string|null $name = null,
+        string|null $email = null,
+        string|null $status = null,
+        bool|null $no_email = null,
+        string|null $custom_fields = null,
+        array|null $attachments = null,
+        string|null $created = null,
     ): array {
         return self::call('AddTicketReply', self::payload([
             'ticketid' => $ticket_id,
@@ -104,58 +110,85 @@ class Support extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/blockticketsender/
      */
-    public function blockTicketSender(int $ticket_id, null|bool $delete = null): array
-    {
-        return self::call('BlockTicketSender', self::payload(['ticketid' => $ticket_id, 'delete' => $delete]));
+    public function blockTicketSender(
+        int $ticket_id,
+        bool|null $delete = null,
+    ): array {
+        return self::call('BlockTicketSender', self::payload([
+            'ticketid' => $ticket_id,
+            'delete' => $delete,
+        ]));
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/deleteannouncement/
      */
-    public function deleteAnnouncement(int $announcement_id): array
-    {
-        return self::call('DeleteAnnouncement', self::payload(['announcementid' => $announcement_id]));
+    public function deleteAnnouncement(
+        int $announcement_id,
+    ): array {
+        return self::call('DeleteAnnouncement', self::payload([
+            'announcementid' => $announcement_id,
+        ]));
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/deleteticket/
      */
-    public function deleteTicket(int $ticket_id): array
-    {
-        return self::call('DeleteTicket', self::payload(['ticketid' => $ticket_id]));
+    public function deleteTicket(
+        int $ticket_id,
+    ): array {
+        return self::call('DeleteTicket', self::payload([
+            'ticketid' => $ticket_id,
+        ]));
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/deleteticketnote/
      */
-    public function deleteTicketNote(int $note_id): array
-    {
-        return self::call('DeleteTicketNote', self::payload(['noteid' => $note_id]));
+    public function deleteTicketNote(
+        int $note_id,
+    ): array {
+        return self::call('DeleteTicketNote', self::payload([
+            'noteid' => $note_id,
+        ]));
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/deleteticketreply/
      */
-    public function deleteTicketReply(int $ticket_id, int $reply_id): array
-    {
-        return self::call('DeleteTicketReply', self::payload(['ticketid' => $ticket_id, 'replyid' => $reply_id]));
+    public function deleteTicketReply(
+        int $ticket_id,
+        int $reply_id,
+    ): array {
+        return self::call('DeleteTicketReply', self::payload([
+            'ticketid' => $ticket_id,
+            'replyid' => $reply_id,
+        ]));
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/getannouncements/
      */
-    public function getAnnouncements(null|int $limit_start = null, null|int $limit_num = null): array
-    {
-        return self::call('GetAnnouncements', self::payload(['limitstart' => $limit_start, 'limitnum' => $limit_num]));
+    public function getAnnouncements(
+        int|null $limit_start = null,
+        int|null $limit_num = null,
+    ): array {
+        return self::call('GetAnnouncements', self::payload([
+            'limitstart' => $limit_start,
+            'limitnum' => $limit_num,
+        ]));
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/mergeticket/
      */
-    public function mergeTicket(int $ticket_id, string $merge_ticket_ids, null|string $new_subject = null): array
-    {
+    public function mergeTicket(
+        int $ticket_id,
+        string $merge_ticket_ids,
+        string|null $new_subject = null,
+    ): array {
         return self::call('MergeTicket', self::payload([
             'ticketid' => $ticket_id,
             'mergeticketids' => $merge_ticket_ids,
@@ -164,27 +197,27 @@ class Support extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/openticket/
      */
     public function openTicket(
         int $department_id,
         string $subject,
         string $message,
-        null|int $client_id = null,
-        null|int $user_id = null,
-        null|int $contact_id = null,
-        null|string $name = null,
-        null|string $email = null,
-        null|string $priority = null,
-        null|string $created = null,
-        null|int $service_id = null,
-        null|int $domain_id = null,
-        null|bool $admin = null,
-        null|bool $no_email = null,
-        null|bool $markdown = null,
-        null|string $custom_fields = null,
-        null|array $attachments = null,
-        null|bool $prevent_client_closure = null,
+        int|null $client_id = null,
+        int|null $user_id = null,
+        int|null $contact_id = null,
+        string|null $name = null,
+        string|null $email = null,
+        string|null $priority = null,
+        string|null $created = null,
+        int|null $service_id = null,
+        int|null $domain_id = null,
+        bool|null $admin = null,
+        bool|null $no_email = null,
+        bool|null $markdown = null,
+        string|null $custom_fields = null,
+        array|null $attachments = null,
+        bool|null $prevent_client_closure = null,
     ): array {
         return self::call('OpenTicket', self::payload([
             'deptid' => $department_id,
@@ -209,25 +242,25 @@ class Support extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/updateticket/
      */
     public function updateTicket(
         int $ticket_id,
-        null|int $department_id = null,
-        null|string $status = null,
-        null|string $subject = null,
-        null|int $user_id = null,
-        null|string $name = null,
-        null|string $email = null,
-        null|string $cc = null,
-        null|string $priority = null,
-        null|string $created = null,
-        null|int $flag = null,
-        null|bool $remove_flag = null,
-        null|string $message = null,
-        null|bool $markdown = null,
-        null|string $custom_fields = null,
-        null|bool $prevent_client_closure = null,
+        int|null $department_id = null,
+        string|null $status = null,
+        string|null $subject = null,
+        int|null $user_id = null,
+        string|null $name = null,
+        string|null $email = null,
+        string|null $cc = null,
+        string|null $priority = null,
+        string|null $created = null,
+        int|null $flag = null,
+        bool|null $remove_flag = null,
+        string|null $message = null,
+        bool|null $markdown = null,
+        string|null $custom_fields = null,
+        bool|null $prevent_client_closure = null,
     ): array {
         return self::call('UpdateTicket', self::payload([
             'ticketid' => $ticket_id,
@@ -250,13 +283,13 @@ class Support extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/updateticketreply/
      */
     public function updateTicketReply(
         int $reply_id,
         string $message,
-        null|bool $markdown = null,
-        null|string $created = null,
+        bool|null $markdown = null,
+        string|null $created = null,
     ): array {
         return self::call('UpdateTicketReply', self::payload([
             'replyid' => $reply_id,
