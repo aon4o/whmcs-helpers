@@ -123,7 +123,7 @@ class Service extends LocalAPI
         null|int $promo_id = null,
         null|array $unset = null,
         null|bool $auto_recalc = null,
-        null|string $custom_fields = null,
+        null|array $custom_fields = null,
         null|string $config_options = null,
     ): array {
         return self::call('UpdateClientProduct', self::payload([
@@ -157,7 +157,7 @@ class Service extends LocalAPI
             'promoid' => $promo_id,
             'unset' => $unset,
             'autorecalc' => $auto_recalc,
-            'customfields' => $custom_fields,
+            'customfields' => base64_encode(serialize($custom_fields)),
             'configoptions' => $config_options,
         ]));
     }
