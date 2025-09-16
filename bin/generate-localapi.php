@@ -192,7 +192,7 @@ foreach ($categories as $category => $actions) {
         $php[] = '     */';
 
         // Method signature with params each on a new line (if any)
-        if (!empty($sigParts)) {
+        if (! empty($sigParts)) {
             $php[] = "    public function {$methodName}(";
             foreach ($sigParts as $part) {
                 $php[] = '        ' . $part . ',';
@@ -204,7 +204,7 @@ foreach ($categories as $category => $actions) {
         $php[] = '    {';
 
         // Payload with each key/value on its own line (if any)
-        if (!empty($payloadBuild)) {
+        if (! empty($payloadBuild)) {
             $php[] = "        return self::call('{$action}', self::payload([";
             foreach ($payloadBuild as $entry) {
                 $php[] = '            ' . $entry . ',';
