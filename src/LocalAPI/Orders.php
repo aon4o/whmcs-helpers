@@ -7,7 +7,7 @@ use Aon4o\WhmcsHelpers\Interfaces\LocalAPI;
 class Orders extends LocalAPI
 {
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/acceptorder/
      */
     public function acceptOrder(
         int $order_id,
@@ -32,7 +32,7 @@ class Orders extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/addorder/
      */
     public function addOrder(
         int $client_id,
@@ -135,7 +135,7 @@ class Orders extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/cancelorder/
      */
     public function cancelOrder(int $order_id, null|bool $cancel_sub = null, null|bool $no_email = null): array
     {
@@ -147,7 +147,7 @@ class Orders extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/deleteоrder/
      */
     public function deleteOrder(int $order_id): array
     {
@@ -155,7 +155,7 @@ class Orders extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/fraudоrder/
      */
     public function fraudOrder(int $order_id, null|bool $cancel_sub = null): array
     {
@@ -163,7 +163,7 @@ class Orders extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/getorders/
      */
     public function getOrders(
         null|int $limit_start = null,
@@ -184,7 +184,7 @@ class Orders extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/getorderstatuses/
      */
     public function getOrderStatuses(): array
     {
@@ -192,7 +192,7 @@ class Orders extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/getproducts/
      */
     public function getProducts(
         null|int $product_id = null,
@@ -207,15 +207,18 @@ class Orders extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/getpromotions/
      */
-    public function getPromotions(null|string $promo_code = null): array
-    {
-        return self::call('GetPromotions', self::payload(['code' => $promo_code]));
+    public function getPromotions(
+        string|null $code = null,
+    ): array {
+        return self::call('GetPromotions', self::payload([
+            'code' => $code,
+        ]));
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/orderfraudcheck/
      */
     public function fraudCheck(int $order_id, null|string $ip_address = null): array
     {
@@ -223,7 +226,7 @@ class Orders extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/pendingorder/
      */
     public function pendingOrder(int $order_id): array
     {
