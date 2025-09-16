@@ -7,65 +7,90 @@ use Aon4o\WhmcsHelpers\Interfaces\LocalAPI;
 class Service extends LocalAPI
 {
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/modulechangepackage/
      */
-    public function moduleChangePackage(int $service_id): array
-    {
-        return self::call('ModuleChangePackage', self::payload(['serviceid' => $service_id]));
+    public function moduleChangePackage(
+        int $service_id,
+    ): array {
+        return self::call('ModuleChangePackage', self::payload([
+            'serviceid' => $service_id,
+        ]));
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/modulechangepw/
      */
-    public function moduleChangePw(int $service_id, null|string $service_password = null): array
-    {
-        return self::call('ModuleChangePw',
-            self::payload(['serviceid' => $service_id, 'servicepassword' => $service_password]));
+    public function moduleChangePw(
+        int $service_id,
+        string|null $service_password = null,
+    ): array {
+        return self::call('ModuleChangePw', self::payload([
+            'serviceid' => $service_id,
+            'servicepassword' => $service_password,
+        ]));
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/modulecreate/
      */
-    public function moduleCreate(int $service_id): array
-    {
-        return self::call('ModuleCreate', self::payload(['serviceid' => $service_id]));
+    public function moduleCreate(
+        int $service_id,
+    ): array {
+        return self::call('ModuleCreate', self::payload([
+            'serviceid' => $service_id,
+        ]));
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/modulecustom/
      */
-    public function moduleCustom(int $service_id, string $func_name): array
-    {
-        return self::call('ModuleCustom', self::payload(['serviceid' => $service_id, 'func_name' => $func_name]));
+    public function moduleCustom(
+        int $service_id,
+        string $func_name,
+    ): array {
+        return self::call('ModuleCustom', self::payload([
+            'serviceid' => $service_id,
+            'func_name' => $func_name,
+        ]));
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/modulesuspend/
      */
-    public function moduleSuspend(int $service_id, null|string $suspend_reason = null): array
-    {
-        return self::call('ModuleSuspend',
-            self::payload(['serviceid' => $service_id, 'suspendreason' => $suspend_reason]));
+    public function moduleSuspend(
+        int $service_id,
+        string|null $suspend_reason = null,
+    ): array {
+        return self::call('ModuleSuspend', self::payload([
+            'serviceid' => $service_id,
+            'suspendreason' => $suspend_reason,
+        ]));
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/moduleterminate/
      */
-    public function moduleTerminate(int $service_id): array
-    {
-        return self::call('ModuleTerminate', self::payload(['serviceid' => $service_id]));
+    public function moduleTerminate(
+        int $service_id,
+    ): array {
+        return self::call('ModuleTerminate', self::payload([
+            'serviceid' => $service_id,
+        ]));
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/moduleunsuspend/
      */
-    public function moduleUnsuspend(int $service_id): array
-    {
-        return self::call('ModuleUnsuspend', self::payload(['serviceid' => $service_id]));
+    public function moduleUnsuspend(
+        int $service_id,
+    ): array {
+        return self::call('ModuleUnsuspend', self::payload([
+            'serviceid' => $service_id,
+        ]));
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/updateclientproduct/
      */
     public function updateClientProduct(
         int $service_id,
@@ -138,7 +163,7 @@ class Service extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/upgradeproduct/
      */
     public function upgradeProduct(
         int $service_id,
