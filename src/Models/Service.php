@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Aon4o\WhmcsHelpers\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * Represents a row from WHMCS tblhosting (Service) table.
@@ -48,10 +49,21 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $lastupdate datetime (YYYY-MM-DD HH:MM:SS)
  * @property string|null $created_at timestamp
  * @property string|null $updated_at timestamp
+ *
+ * Relations:
+ * @property-read Product|null $product
  */
 class Service extends Model
 {
     protected $table = 'tblhosting';
 
     protected $guarded = ['id'];
+
+    /**
+     * @return BelongsTo
+     */
+    public function product(): BelongsTo
+    {
+        return $this->belongsTo(Product::class, 'packageid');
+    }
 }
