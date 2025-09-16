@@ -7,7 +7,7 @@ use Aon4o\WhmcsHelpers\Interfaces\LocalAPI;
 class Billing extends LocalAPI
 {
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/acceptquote/
      */
     public function acceptQuote(int $quote_id): array
     {
@@ -15,7 +15,7 @@ class Billing extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/addbillableitem/
      */
     public function addBillableItem(
         int $client_id,
@@ -44,7 +44,7 @@ class Billing extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/addcredit/
      */
     public function addCredit(
         int $client_id,
@@ -65,7 +65,7 @@ class Billing extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/addinvoicepayment/
      */
     public function addInvoicePayment(
         int $invoice_id,
@@ -88,7 +88,7 @@ class Billing extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/addpaymethod/
      */
     public function addPayMethod(
         int $client_id,
@@ -123,7 +123,7 @@ class Billing extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/addtransaction/
      */
     public function addTransaction(
         string $payment_method,
@@ -158,7 +158,7 @@ class Billing extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/applycredit/
      */
     public function applyCredit(int $invoice_id, null|float $amount = null, null|bool $no_email = null): array
     {
@@ -170,7 +170,7 @@ class Billing extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/capturepayment/
      */
     public function capturePayment(int $invoice_id, null|string $cvv = null): array
     {
@@ -178,7 +178,7 @@ class Billing extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/createinvoice/
      */
     public function createInvoice(
         int $user_id,
@@ -215,7 +215,7 @@ class Billing extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/createquote/
      */
     public function createQuote(
         string $subject,
@@ -278,7 +278,7 @@ class Billing extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/deletepaymethod/
      */
     public function deletePayMethod(int $client_id, int $pay_method_id, null|bool $fail_on_remote_failure = null): array
     {
@@ -290,15 +290,16 @@ class Billing extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/deletequote/
      */
-    public function deleteQuote(int $quote_id): array
-    {
+    public function deleteQuote(
+        int $quote_id,
+    ): array {
         return self::call('DeleteQuote', self::payload(['quoteid' => $quote_id]));
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/geninvoices/
      */
     public function genInvoices(
         null|bool $no_emails = null,
@@ -317,23 +318,7 @@ class Billing extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
-     */
-    public function getCredits(int $client_id): array
-    {
-        return self::call('GetCredits', self::payload(['clientid' => $client_id]));
-    }
-
-    /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
-     */
-    public function getInvoice(int $invoice_id): array
-    {
-        return self::call('GetInvoice', self::payload(['invoiceid' => $invoice_id]));
-    }
-
-    /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/getinvoices/
      */
     public function getInvoices(
         null|int $limit_start = null,
@@ -354,7 +339,7 @@ class Billing extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/getpaymethods/
      */
     public function getPayMethods(int $client_id, null|int $pay_method_id = null, null|string $type = null): array
     {
@@ -366,7 +351,7 @@ class Billing extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/getquotes/
      */
     public function getQuotes(
         null|int $limit_start = null,
@@ -393,7 +378,7 @@ class Billing extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/gettransactions/
      */
     public function getTransactions(
         null|int $invoice_id = null,
@@ -408,15 +393,7 @@ class Billing extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
-     */
-    public function sendQuote(int $quote_id): array
-    {
-        return self::call('SendQuote', self::payload(['quoteid' => $quote_id]));
-    }
-
-    /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/updateinvoice/
      */
     public function updateInvoice(
         int $invoice_id,
@@ -463,7 +440,7 @@ class Billing extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/updatepaymethod/
      */
     public function updatePayMethod(
         int $client_id,
@@ -494,7 +471,7 @@ class Billing extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/updatequote/
      */
     public function updateQuote(
         int $quote_id,
@@ -559,7 +536,7 @@ class Billing extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/updatetransaction/
      */
     public function updateTransaction(
         int $transaction_id,

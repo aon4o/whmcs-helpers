@@ -7,7 +7,7 @@ use Aon4o\WhmcsHelpers\Interfaces\LocalAPI;
 class Authentication extends LocalAPI
 {
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/createoauthcredential/
      */
     public function createOAuthCredential(
         string $grant_type,
@@ -30,7 +30,7 @@ class Authentication extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/createssotoken/
      */
     public function createSsoToken(
         null|int $client_id = null,
@@ -51,7 +51,7 @@ class Authentication extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/deleteoauthcredential/
      */
     public function deleteOAuthCredential(int $credential_id): array
     {
@@ -59,7 +59,7 @@ class Authentication extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/listoauthcredentials/
      */
     public function listOAuthCredentials(
         null|string $grant_type = null,
@@ -76,7 +76,7 @@ class Authentication extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/updateoauthcredential/
      */
     public function updateOAuthCredential(
         int $credential_id,
@@ -105,10 +105,12 @@ class Authentication extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/validatelogin/
      */
-    public function validateLogin(string $email, string $password2): array
-    {
+    public function validateLogin(
+        string $email,
+        string $password2,
+    ): array {
         return self::call('ValidateLogin', self::payload([
             'email' => $email,
             'password2' => $password2,

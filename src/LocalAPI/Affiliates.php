@@ -7,7 +7,7 @@ use Aon4o\WhmcsHelpers\Interfaces\LocalAPI;
 class Affiliates extends LocalAPI
 {
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/affiliateactivate/
      */
     public function activate(int $user_id): array
     {
@@ -15,7 +15,7 @@ class Affiliates extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/getaffiliates/
      */
     public function getAffiliates(
         null|int $limit_start = null,
