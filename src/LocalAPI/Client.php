@@ -7,7 +7,7 @@ use Aon4o\WhmcsHelpers\Interfaces\LocalAPI;
 class Client extends LocalAPI
 {
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/addclient/
      */
     public function addClient(
         null|int $owner_user_id = null,
@@ -66,7 +66,7 @@ class Client extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/addcontact/
      */
     public function addContact(
         int $client_id,
@@ -115,7 +115,7 @@ class Client extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/closeclient/
      */
     public function closeClient(int $client_id): array
     {
@@ -123,7 +123,7 @@ class Client extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/deleteclient/
      */
     public function deleteClient(
         int $client_id,
@@ -138,7 +138,7 @@ class Client extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/deletecontact/
      */
     public function deleteContact(int $contact_id): array
     {
@@ -146,7 +146,7 @@ class Client extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/getcancelledpackages/
      */
     public function getCancelledPackages(null|int $limit_start = null, null|int $limit_num = null): array
     {
@@ -157,7 +157,7 @@ class Client extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/getclientgroups/
      */
     public function getClientGroups(): array
     {
@@ -165,7 +165,7 @@ class Client extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/getclientpassword/
      */
     public function getClientPassword(null|int $user_id = null, null|string $email = null): array
     {
@@ -173,7 +173,7 @@ class Client extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/getclients/
      */
     public function getClients(
         null|int $limit_start = null,
@@ -194,7 +194,7 @@ class Client extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/getclientsaddons/
      */
     public function getClientsAddons(
         null|int $service_id = null,
@@ -209,7 +209,7 @@ class Client extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/getclientsdetails/
      */
     public function getClientsDetails(
         null|int $client_id = null,
@@ -224,7 +224,7 @@ class Client extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/getclientsdomains/
      */
     public function getClientsDomains(
         null|int $limit_start = null,
@@ -243,7 +243,7 @@ class Client extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/getclientsproducts/
      */
     public function getClientsProducts(
         null|int $limit_start = null,
@@ -266,7 +266,7 @@ class Client extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/getcontacts/
      */
     public function getContacts(
         null|int $limit_start = null,
@@ -303,7 +303,7 @@ class Client extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/getemails/
      */
     public function getEmails(
         int $client_id,
@@ -322,7 +322,7 @@ class Client extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/updateclient/
      */
     public function updateClient(
         null|int $client_id = null,
@@ -407,7 +407,7 @@ class Client extends LocalAPI
     }
 
     /**
-     * @link https://developers.whmcs.com/api-reference/{$slug}/
+     * @link https://developers.whmcs.com/api-reference/updatecontact/
      */
     public function updateContact(
         int $contact_id,
