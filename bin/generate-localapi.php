@@ -103,15 +103,6 @@ foreach ($categories as $category => $actions) {
     $php[] = '';
     $php[] = "class $className extends LocalAPI";
     $php[] = '{';
-    $php[] = '    /**';
-    $php[] = '     * Helper to filter out nulls and assemble payload.';
-    $php[] = '     * @param array $params';
-    $php[] = '     * @return array';
-    $php[] = '     */';
-    $php[] = '    private function payload(array $params): array';
-    $php[] = '    {';
-    $php[] = '        return array_filter($params, static fn($v) => $v !== null);';
-    $php[] = '    }';
     $php[] = '';
 
     foreach ($actions as $info) {
@@ -166,7 +157,7 @@ foreach ($categories as $category => $actions) {
         // Lowercase first char for method
         $methodName = lcfirst($methodName);
 
-        // Build param signature
+        // Build param signature parts and payload mapping
         $sigParts = [];
         $payloadBuild = [];
         $usedNames = [];
@@ -190,22 +181,39 @@ foreach ($categories as $category => $actions) {
             if ($p['required']) {
                 $sigParts[] = $phpType . ' ' . $var;
             } else {
-                $sigParts[] = '?' . $phpType . ' ' . $var . ' = null';
+                $sigParts[] = $phpType . '|null ' . $var . ' = null';
             }
             $payloadBuild[] = "'{$origName}' => {$var}";
         }
-        $sig = implode(', ', $sigParts);
-        $payload = '[]';
-        if (! empty($payloadBuild)) {
-            $payload = '[' . implode(', ', $payloadBuild) . ']';
-        }
 
         $php[] = '    /**';
-        $php[] = '     * @link https://developers.whmcs.com/api-reference/{$slug}/';
+        $actionLower = strtolower($action);
+        $php[] = "     * @link https://developers.whmcs.com/api-reference/{$actionLower}/";
         $php[] = '     */';
-        $php[] = "    public function {$methodName}({$sig}): array";
+
+        // Method signature with params each on a new line (if any)
+        if (!empty($sigParts)) {
+            $php[] = "    public function {$methodName}(";
+            foreach ($sigParts as $part) {
+                $php[] = '        ' . $part . ',';
+            }
+            $php[] = '    ): array';
+        } else {
+            $php[] = "    public function {$methodName}(): array";
+        }
         $php[] = '    {';
-        $php[] = "        return self::call('{$action}', " . '$this' . "->payload({$payload}));";
+
+        // Payload with each key/value on its own line (if any)
+        if (!empty($payloadBuild)) {
+            $php[] = "        return self::call('{$action}', self::payload([";
+            foreach ($payloadBuild as $entry) {
+                $php[] = '            ' . $entry . ',';
+            }
+            $php[] = '        ]));';
+        } else {
+            $php[] = "        return self::call('{$action}', self::payload([]));";
+        }
+
         $php[] = '    }';
         $php[] = '';
     }
