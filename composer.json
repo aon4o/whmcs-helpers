@@ -42,7 +42,7 @@
         "illuminate/support": "^9.0",
         "illuminate/validation": "^9.0",
         "knplabs/knp-menu": "^3.1.1",
-        "laminas/laminas-diactoros": "^2.3.1",
+        "laminas/laminas-diactoros": "^3.6.0",
         "laminas/laminas-httphandlerrunner": "^1.2.0",
         "league/climate": "^3.5.2",
         "league/flysystem": "^1.0.6",
