@@ -19,12 +19,12 @@
     ],
     "require": {
         "php": "^8.1",
-        "ext-imap": "*",
-        "psy/psysh": "^0.12.10"
+        "ext-imap": "*"
     },
     "require-dev": {
         "laravel/pint": "^1.20",
         "pestphp/pest": "^2.36",
+        "psy/psysh": "^0.12.10",
         "whmcs/developer-docs": "dev-main",
         "abraham/twitteroauth": "^2.0",
         "composer/composer": "^2.0",
