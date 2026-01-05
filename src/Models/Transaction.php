@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 /**
  * @property int $id
  * @property int $userid
- * @property int $currency Relation
+ * @property int $currency Currency ID
  * @property string $gateway
  * @property string $date
  * @property string $description
@@ -33,5 +33,13 @@ class Transaction extends Model
     public function invoice(): BelongsTo
     {
         return $this->belongsTo(Invoice::class, 'invoiceid');
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function currencyModel(): BelongsTo
+    {
+        return $this->belongsTo(Currency::class, 'currency');
     }
 }
