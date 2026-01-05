@@ -53,4 +53,12 @@ class Invoice extends Model
     {
         return $this->hasMany(InvoiceItem::class, 'invoiceid');
     }
+
+    /**
+     * @return HasMany
+     */
+    public function transactions(): HasMany
+    {
+        return $this->hasMany(Transaction::class, 'invoiceid');
+    }
 }
