@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Aon4o\WhmcsHelpers\Models;
 
+use Aon4o\WhmcsHelpers\LocalAPI\Client;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @property int $id
@@ -35,4 +37,12 @@ class Invoice extends Model
     protected $table = 'tblinvoices';
 
     protected $guarded = ['id'];
+
+    /**
+     * @return BelongsTo
+     */
+    public function client(): BelongsTo
+    {
+        return $this->belongsTo(Client::class, 'userid');
+    }
 }
