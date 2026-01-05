@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Aon4o\WhmcsHelpers\Models;
 
-use Aon4o\WhmcsHelpers\LocalAPI\Client;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property int $id
@@ -44,5 +44,13 @@ class Invoice extends Model
     public function client(): BelongsTo
     {
         return $this->belongsTo(Client::class, 'userid');
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function invoiceItems(): HasMany
+    {
+        return $this->hasMany(InvoiceItem::class, 'invoiceid');
     }
 }
