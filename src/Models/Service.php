@@ -6,6 +6,7 @@ namespace Aon4o\WhmcsHelpers\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 /**
  * Represents a row from WHMCS tblhosting (Service) table.
@@ -65,5 +66,20 @@ class Service extends Model
     public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class, 'packageid');
+    }
+
+    /**
+     * @return HasManyThrough
+     */
+    public function invoices(): HasManyThrough
+    {
+        return $this->hasManyThrough(
+            Invoice::class,
+            InvoiceItem::class,
+            'relid', // Foreign key on InvoiceItem table...
+            'id', // Foreign key on Invoice table...
+            'id', // Local key on Service table...
+            'invoiceid', // Local key on InvoiceItem table...
+        )->where('tblinvoiceitems.type', 'Hosting');
     }
 }
