@@ -74,6 +74,8 @@ class Client extends Model
 {
     public $table = 'tblclients';
 
+    public $timestamps = false;
+
     /**
      * @return BelongsTo
      */
