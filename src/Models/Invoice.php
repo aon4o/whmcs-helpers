@@ -31,6 +31,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $notes
  * @property $created_at
  * @property $updated_at
+ * @property mixed $left_to_pay
  */
 class Invoice extends Model
 {
@@ -60,5 +61,13 @@ class Invoice extends Model
     public function transactions(): HasMany
     {
         return $this->hasMany(Transaction::class, 'invoiceid');
+    }
+
+    /**
+     * @return float|int|mixed
+     */
+    public function getLeftToPayAttribute(): mixed
+    {
+        return $this->total - $this->transactions()->sum('amountin');
     }
 }
