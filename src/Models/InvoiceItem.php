@@ -47,7 +47,9 @@ class InvoiceItem extends Model
      */
     public function itemable(): Model
     {
-        $rel_class = match ($this->type) {
+        $itemable_type = InvoiceItemType::from($this->type);
+
+        $rel_class = match ($itemable_type) {
             InvoiceItemType::Hosting => Service::class,
             InvoiceItemType::Invoice => Invoice::class,
             InvoiceItemType::Domain,
